@@ -1,0 +1,97 @@
+{{ header }}
+<div id="account-wishlist" class="_container _start col-xs-12">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  {% if success %}
+  <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+  </div>
+  {% endif %}
+  <div id="product-compare" class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <div class="account__title login__title main__title">
+        <h1>{{ heading_title }}</h1>
+      </div>
+      {% if products %}
+      <div class="table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <td class="text-center"><strong>{{ column_image }}</strong></td>
+              <td class="text-left"><strong>{{ column_name }}</strong></td>
+              {# <td class="text-left">{{ column_model }}</td>
+              <td class="text-right">{{ column_stock }}</td> #}
+              <td class="text-right"><strong>{{ column_price }}</strong></td>
+              <td class="text-right"><strong>{{ column_action }}</strong></td>
+            </tr>
+          </thead>
+          {# <tbody>
+          
+          {% for product in products %}
+          <tr>
+            <td class="text-center">{% if product.thumb %}<a href="{{ product.href }}"><img class="img-thumbnail" src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" /></a>{% endif %}</td>
+            <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a></td>
+            <td class="text-left">{{ product.model }}</td>
+            <td class="text-right">{{ product.stock }}</td>
+            <td class="text-right">{% if product.price %}
+              <div class="price"> {% if not product.special %}
+                {{ product.price }}
+                {% else %} <b>{{ product.special }}</b> <s>{{ product.price }}</s> {% endif %} </div>
+              {% endif %}</td>
+            <td class="text-right"><button type="button" onclick="cart.add('{{ product.product_id }}');" data-toggle="tooltip" title="{{ button_cart }}" class="btn btn-primary"><i class="fa fa-shopping-cart"></i></button>
+              <a href="{{ product.remove }}" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-times"></i></a></td>
+          </tr>
+          {% endfor %}
+
+          
+          </tbody> #}
+          <tbody>
+            {% for product in products %}
+              <tr>
+                <td class="text-center">{% if product.thumb %}<a href="{{ product.href }}"><img class="img-thumbnail" src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" /></a>{% endif %}</td>
+                <td><a href="{{ product.href }}"><strong>{{ product.name }}</strong></a></td>
+                <td class="_price price _price info-catalog__price text-center">
+                  {% if product.price %}
+                    <div class="price"> 
+                      {% if not product.special %} 
+                        {{ product.price }} <span class="_rub"></span> 
+                      {% else %}
+                        <strike class="price-old info-catalog__price">{{ product.price }} <span class="_rub"></span></strike>
+                        <p><span class="price-new info-catalog__price">{{ product.special }}</span> <span class="_rub"></span></p>
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                </td>
+                <td class="text-center">
+                  <button style="margin: 10px 0;" type="button" onclick="cart.add('{{ product.product_id }}');" data-toggle="tooltip" title="{{ button_cart }}" class="btn btn-bootstrap btn-primary"><i class="fa fa-shopping-cart"></i></button>
+                  <a style="margin: 10px 0;" href="{{ product.remove }}" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-bootstrap btn-danger"><i class="fa fa-times"></i></a>
+                </td>
+              </tr>
+            {% endfor %}
+          </tbody>
+
+          
+        </table>
+      </div>
+      {% else %}
+      <p>{{ text_empty }}</p>
+      {% endif %}
+      <div class="buttons clearfix">
+        <div class="pull-right">
+        <a href="{{ continue }}" class="opencart__center form__button main__button account__signup login__signup">{{ button_continue }}</a>
+        </div>
+      </div>
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}

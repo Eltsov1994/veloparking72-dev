@@ -1,0 +1,77 @@
+{{ header }}
+<div id="account-login" class="_container _start col-xs-12 account login account__wrapper login__wrapper">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+      <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+
+  {% if success %}
+    <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}</div>
+  {% endif %}
+
+  {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+  {% endif %}
+
+  <div class="row">
+    {{ column_left }}
+      {% if column_left and column_right %}
+        {% set class = 'col-sm-6' %}
+      {% elseif column_left or column_right %}
+        {% set class = 'col-sm-9' %}
+      {% else %}
+        {% set class = 'col-sm-12' %}
+      {% endif %}
+      <div id="content" class="{{ class }}">
+        <div class="account__header login__header">
+          <div class="account__title login__title main__title">
+              <h1>Авторизация</h1>
+          </div>
+        </div>
+        {{ content_top }}
+        <div class="row account__body login__body">
+          <div class="col-sm-6 account__form login__form">
+            <div class="well">
+              <form action="{{ action }}" method="post" enctype="multipart/form-data" class="form-login form">
+
+                <div class="form-group form__line">
+                  <label class="control-label" for="input-email">{{ entry_email }}</label>
+                  <input type="text" name="email" value="{{ email }}" placeholder="{{ entry_email }}" id="input-email" class="input" />
+                </div>
+
+                <div class="form-group form__line">
+                  <label class="control-label" for="input-password">{{ entry_password }}</label>
+                  <input type="password" name="password" value="{{ password }}" placeholder="{{ entry_password }}" id="input-password" class="input" />
+                </div>
+
+                <div class="form-group form__line">
+                  <a class="account__forgotten" href="{{ forgotten }}">{{ text_forgotten }}</a>
+                </div>
+
+                <div class="form-group form__line">
+
+                  <button type="submit" class="form__button main__button">{{ button_login }}</button>
+                  <a href="{{ register }}" class="form__button main__button account__signup login__signup">Регистрация</a>
+                  {% if redirect %}
+                    <input type="hidden" name="redirect" value="{{ redirect }}" />
+                  {% endif %}
+                </div>
+
+              </form>
+            </div>
+          </div>
+
+          <div class="col-sm-6">
+            <div class="account__image login__image _ibg">
+                <img src="image/catalog/login.svg" alt="Login">
+            </div>
+          </div>
+        </div>
+        {{ content_bottom }}
+      </div>
+    {{ column_right }}
+  </div>
+    
+</div>
+{{ footer }}

@@ -1,0 +1,197 @@
+.footer {
+   background-color: #fff;
+   // .footer__content
+   &__content {
+   }
+   // .footer__title
+   &__title {
+      font-size: 18px;
+      font-size: pxResponsive(16, 18);
+      font-weight: 800;
+      text-transform: uppercase;
+      text-align: center;
+      padding-bottom: pxResponsive(20, 45);
+      color: $black;
+   }
+   // .footer__top
+   &__top {
+      display: flex;
+      flex-wrap: wrap;
+      padding-top: pxResponsive(20, 100);
+      margin: -20px;
+      & > div {
+         flex: 0 1 25%;
+         @media screen and (max-width: $md2+px) {
+            flex: 0 1 calc(50% - 40px);
+            margin: 20px;
+         }
+         @media screen and (max-width: 600px) {
+            flex: 0 1 400px;
+            margin: 30px auto;
+         }
+         @media screen and (max-width: $md4+px) {
+            flex: 0 1 100%;
+            margin: 30px 0;
+         }
+      }
+   }
+   // .footer__logo
+   &__logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      img {
+         max-width: pxResponsive(130, 200);
+      }
+      p {
+         font-size: 14px;
+         font-size: pxResponsive(11, 14);
+         text-align: center;
+         font-weight: 800;
+         text-transform: uppercase;
+         color: $black;
+      }
+   }
+   // .footer__contacts
+   &__contacts {
+   }
+   // .footer__partners
+   &__partners {
+   }
+   // .footer__social
+   &__social {
+   }
+   // .footer__mid
+   &__mid {
+      position: relative;
+      height: 330px;
+      @media screen and (max-width: $md2+px) {
+         height: 28vw;
+      }
+   }
+   // .footer__bicycle
+   &__bicycle {
+      position: absolute;
+      bottom: 0;
+      left: -40px;
+      width: 100px;
+      height: 100px;
+      opacity: 0;
+      z-index: 1;
+      @media screen and (max-width: $md2+px) {
+         opacity: 1;
+         left: 20px;
+         bottom: 58px;
+         transform: rotate(-26deg);
+      }
+      @media screen and (max-width: $md4+px) {
+         width: pxResponsive(65, 100);
+         height: pxResponsive(65, 100);
+         bottom: pxResponsive(35, 80);
+      }
+   }
+   // .footer__mountains
+   &__mountains {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      min-width: $md1 + px;
+      height: 100%;
+      //background: url("../img/mountains.svg") 50% 100% / 100% 170% no-repeat;
+      background-position: 50% 100%;
+      background-size: 100% 170%;
+
+      @media screen and (max-width: $md2+px) {
+         background-size: 100% auto;
+         background-image: url("../img/mountains.svg");
+         background-position: 0 100%;
+         min-width: 0;
+      }
+   }
+   // .footer__bottom
+   &__bottom {
+   }
+}
+
+.contacts-footer {
+   // .contacts-footer__title
+   &__title {
+   }
+   // .contacts-footer__body
+   &__body {
+   }
+   // .contacts-footer__nav
+   &__nav {
+      margin: -15px 0;
+   }
+   li {
+      margin: pxResponsive(25, 15) 0;
+      text-align: center;
+   }
+   // .contacts-footer__link
+   &__link {
+      font-size: pxResponsive(14, 16);
+      color: $grey;
+      letter-spacing: 1px;
+      &:before {
+         margin-right: 15px;
+         font-size: pxResponsive(15, 20);
+         color: $yellow;
+      }
+   }
+}
+.partners-footer {
+   // .partners-footer__title
+   &__title {
+   }
+   // .partners-footer__body
+   &__body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: -15px 0;
+      img {
+         display: block;
+         flex: 0 1 60px;
+         height: 60px;
+         margin: 15px;
+         transition: all 0.1s ease;
+         @media screen and (min-width: $md2+px) {
+            &:hover {
+               transform: scale(1.1);
+            }
+         }
+      }
+   }
+}
+.social-footer {
+   // .social-footer__title
+   &__title {
+   }
+   // .social-footer__body
+   &__body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+      a {
+         color: $grey;
+         font-size: 40px;
+         margin: 15px;
+         transition: all 0.1s ease;
+         @media screen and (min-width: $md2+px) {
+            &:hover {
+               color: $yellow;
+               transform: scale(1.1);
+            }
+         }
+      }
+   }
+}
+
+//====================================================================================================
+
+//====================================================================================================

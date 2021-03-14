@@ -1,0 +1,148 @@
+.service {
+   // .service__wrapper
+   &__wrapper {
+   }
+   // .service__header
+   &__header {
+   }
+   // .service__title
+   &__title {
+   }
+   // .service__body
+   &__body {
+   }
+   // .service__description
+   &__description {
+      margin-bottom: 20px;
+      line-height: 24px;
+   }
+   table {
+      thead {
+      }
+      tbody {
+         tr {
+            @media screen and (min-width: $md2+px) {
+               &:hover {
+                  background-color: #e6e6e6;
+               }
+            }
+         }
+      }
+      tr {
+      }
+      th {
+      }
+      td {
+      }
+   }
+   // .service-icon__table
+   &-icon__table {
+      &:before {
+         font-size: 20px;
+         color: $yellow;
+         cursor: pointer;
+      }
+   }
+}
+
+.spoller-service {
+   // .spoller-service__item
+   &__item {
+      margin: 20px;
+   }
+   // .spoller-service__title
+   &__title {
+      position: relative;
+      width: 100%;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      font-weight: 800;
+      background-color: #fff;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      span {
+      }
+      img {
+         width: 40px;
+         margin-right: 10px;
+      }
+      &._active {
+         border-radius: 10px 10px 0 0;
+         @include arrow-down-toUp();
+      }
+      &._active-delay {
+         border-radius: 10px 10px 0 0;
+      }
+      @include arrow-down();
+   }
+   // .spoller-service__body
+   &__body {
+      padding: 30px 20px;
+      background-color: #fff;
+      border-radius: 0 0 10px 10px;
+   }
+}
+
+.spoller-repair {
+   // .spoller-repair__item
+   &__item {
+      margin: 5px;
+   }
+   // .spoller-repair__title
+   &__title {
+      position: relative;
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      border-top: 1px solid #ddd;
+      border-left: 1px solid #ddd;
+      border-right: 1px solid #ddd;
+      border-bottom: 1px solid #ddd;
+      border-radius: 10px;
+      padding: 20px 55px 20px 20px;
+      &._active {
+         border-radius: 10px 10px 0 0;
+         border-bottom: none;
+         @include arrow-down-toUp();
+      }
+
+      @include arrow-down();
+   }
+   // .spoller-repair__body
+   &__body {
+      padding: 10px 20px 15px;
+      border-radius: 0 0 10px 10px;
+      border-bottom: 1px #ddd solid;
+      border-left: 1px #ddd solid;
+      border-right: 1px #ddd solid;
+   }
+}
+
+.storage-service {
+   // .storage-service__wrapper
+   &__wrapper {
+      overflow: auto;
+   }
+   // .storage-service__table
+   &__table {
+      min-width: 500px;
+   }
+   .spoller-service__title {
+   }
+}
+
+.repair-service {
+   // .repair-service__wrapper
+   &__wrapper {
+      overflow: auto;
+   }
+   // .repair-service__table
+   &__table {
+      min-width: 500px;
+   }
+   .spoller-service__title {
+   }
+}

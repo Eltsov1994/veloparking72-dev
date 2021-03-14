@@ -1,0 +1,66 @@
+<div id="cart" class="opencart">
+  {# <button type="button" data-toggle="dropdown" data-loading-text="{{ text_loading }}" class="btn btn-inverse btn-block btn-lg dropdown-toggle"><i class="fa fa-shopping-cart"></i> <span id="cart-total">{{ text_items }}</span></button> #}
+  {# <button type="button" data-toggle="dropdown" data-loading-text="{{ text_loading }}" class="header__cart _icon-cart dropdown-toggle"><span>{{ text_items }}</span></button> #}
+
+  <a href="#popup-maincart" class="_popup-link header__cart _icon-cart"><span>{{ text_items }}</span></a>
+  <div class="popup popup_popup-maincart popup-maincart">
+    <div class="popup__content popup-maincart__content">
+      <div class="popup__body popup-maincart__body">
+        <div class="popup__close _icon-close"></div>
+        <ul class="pull-right opencart__dropdown dropdown-cart">
+          {% if products or vouchers %}
+          <h4 class="dropdown-cart__title">Корзина</h4>
+          <li class="dropdown-cart__body">
+            <form action="" enctype="multipart/form-data" method="post" id="form-cart">
+              {% for product in products %}
+                <div class="dropdown-cart__item">
+                  <div class="dropdown-cart__image">{% if product.thumb %} <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" /></a> {% endif %}</div>
+                  <div class="dropdown-cart__description">
+                    <a href="{{ product.href }}">{{ product.name }}</a>
+                    {% if product.option %}
+                      {% for option in product.option %} <br />
+                        <small>{{ option.value }}</small> 
+                      {% endfor %}
+                    {% endif %}
+                  </div>
+                  <div class="dropdown-cart__quantity">
+                    <a href="#" class="dropdown-cart__minus _icon-minus"></a>
+                    <input type="text" class="input" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}">
+                    <a href="#" class="dropdown-cart__plus _icon-plus"></a>
+                  </div>
+                  <div class="dropdown-cart__price _rub _price">{{ product.price }}</div>
+                  <button type="button" onclick="cart.remove('{{ product.cart_id }}');" title="{{ button_remove }}" class="_icon-trash dropdown-cart__remove"></button>
+                </div>
+              {% endfor %}
+            </form>
+          </li>
+
+          <li class="dropdown-cart__footer">
+            <div>
+              <table class="table table-bordered">
+                {% for total in totals %}
+                <tr>
+                  <td class="text-right"><strong>{{ total.title }}</strong></td>
+                  <td class="text-right _price dropdown-cart__price _rub">{{ total.text }}</td>
+                </tr>
+                {% endfor %}
+              </table>
+              <div class="dropdown-cart__btngroup">
+                <button class="dropdown-cart__tocart _popup-close">Продолжить покупки</button>
+                <a class="dropdown-cart__tocheckout" href="{{ checkout }}">{{ text_checkout }}</a>
+              </div>
+              {# <p class="text-right"><a href="{{ cart }}"><strong><i class="fa fa-shopping-cart"></i> {{ text_cart }}</strong></a>&nbsp;&nbsp;&nbsp;<a href="{{ checkout }}"><strong><i class="fa fa-share"></i> {{ text_checkout }}</strong></a></p> #}
+            </div>
+          </li>
+          {% else %}
+          <li class="dropdown-cart__empty">
+            <h4 class="dropdown-cart__title">{{ text_empty }}</h4>
+            <img class="dropdown-cart__decor" src="dist/img/signup.svg" alt="{{ text_empty }}">
+            <button class="dropdown-cart__tocheckout _popup-close">Продолжить покупки</button>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

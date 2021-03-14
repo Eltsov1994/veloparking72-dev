@@ -1,0 +1,73 @@
+.fixed {
+   // .fixed__phone
+   &__phone {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: -90px;
+      right: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $black;
+      background-color: $yellow;
+      border-radius: 50%;
+      margin: 40px 1px;
+      z-index: 10;
+      transition: all 0.3s elastic();
+      box-shadow: 0px 4px 8px 1px rgba(34, 40, 49, 0.2);
+      &:before {
+         font-size: 20px;
+      }
+      transform: translateX(calc((100vw - #{$maxWidthContainer + px}) / -2));
+      @media screen and (max-width: $maxWidthContainer+px) {
+         transform: translateX(0);
+      }
+
+      @media screen and (max-width: $md1+px) {
+         bottom: 0;
+      }
+   }
+   // .fixed__filters
+   &__filters {
+      position: fixed;
+      width: 50px;
+      height: 50px;
+      bottom: 40px;
+      left: 50%;
+      display: none;
+      justify-content: center;
+      align-items: center;
+      color: $black;
+      background-color: $yellow;
+      border-radius: 50%;
+      z-index: 10;
+      transition: all 0.3s elastic();
+      box-shadow: 0px 4px 8px 1px rgba(34, 40, 49, 0.2);
+      transform: translateX(-50%);
+      &:before {
+         font-size: 20px;
+      }
+   }
+}
+
+._catalog {
+   .fixed {
+      // .fixed__phone
+      &__phone {
+      }
+      // .fixed__filters
+      &__filters {
+         @media screen and (max-width: $md3+px) {
+            display: flex;
+         }
+      }
+   }
+}
+
+//===========================================================
+._scroll {
+   .fixed__phone {
+      bottom: 0;
+   }
+}

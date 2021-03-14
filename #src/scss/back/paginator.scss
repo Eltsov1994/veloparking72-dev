@@ -1,0 +1,111 @@
+.paginator {
+   margin-top: 50px;
+   // .paginator__wrapper
+   &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      @media screen and (max-width: $md2+px) {
+         align-items: center;
+      }
+   }
+   // .paginator__body
+   &__body {
+      display: flex;
+      justify-content: center;
+      @media screen and (min-width: $md1+px) {
+         width: calc(100% - 310px);
+      }
+   }
+   // .paginator__arrow-left
+   &__arrow-left {
+   }
+   // .paginator__numbers
+   &__numbers {
+      display: flex;
+      margin: 0 10px;
+      span {
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         margin: 0 5px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         font-weight: 800;
+         color: #141215;
+         transition: all 0.1s ease;
+         cursor: pointer;
+         @media screen and (min-width: $md2+px) {
+            &:hover {
+               background-color: $yellow;
+            }
+         }
+      }
+   }
+   // .paginator__arrow-right
+   &__arrow-right {
+   }
+}
+.paginator-left {
+   display: flex;
+   align-items: center;
+   span {
+      background-color: #958a8e;
+      width: 30px;
+      height: 30px;
+      opacity: 0.6;
+      border-radius: 50%;
+      margin: 0 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 10px;
+      transition: all 0.1s ease;
+      cursor: pointer;
+      @media screen and (min-width: $md2+px) {
+         &:hover {
+            color: #000;
+            background-color: $yellow;
+         }
+      }
+   }
+   // .paginator-left__start
+   &__start {
+   }
+   // .paginator-left__prev
+   &__prev {
+   }
+}
+.paginator-right {
+   display: flex;
+   align-items: center;
+   span {
+      background-color: #958a8e;
+      width: 30px;
+      height: 30px;
+      opacity: 0.6;
+      border-radius: 50%;
+      margin: 0 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 10px;
+      transition: all 0.1s ease;
+      cursor: pointer;
+      @media screen and (min-width: $md2+px) {
+         &:hover {
+            color: #000;
+            background-color: $yellow;
+         }
+      }
+   }
+   // .paginator-right__next
+   &__next {
+   }
+   // .paginator-right__end
+   &__end {
+   }
+}

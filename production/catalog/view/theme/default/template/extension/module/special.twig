@@ -1,0 +1,95 @@
+
+<div class="tabs__item _tabs-block swiper-bild _swiper_is">
+  <div class="swiper-wrapper">
+    {% for product in products %}
+
+    {# <div class="tabs__item-wrapper swiper-slide">
+      <div class="catalog-item">
+        <div class="catalog-item__img img-catalog">
+          <div class="img-catalog__wrapper">
+            <a class="img-catalog__link" href="{{ product.href }}">
+              <img class="img-catalog__img swiper-lazy" src="image/loading.gif" data-src="{{ product.thumb }}" alt="{{ product.name }}">
+              <div class="img-catalog__stickers stickers">
+                <div class="stickers__sticker stickers__sale"></div>
+                {% if product.date_added == product.year_now %}
+                <div class="stickers__sticker stickers__new"></div>
+                {% endif %}
+              </div>
+            </a>
+          </div>
+        </div>
+        <div class="catalog-item__info info-catalog">
+          <div class="info-catalog__line">
+            <a href="{{ product.href }}" class="info-catalog__name">{{ product.name }}</a>
+            <div class="info-catalog__article">АРТИКУЛ: <span>{{ product.product_id }}</span></div>
+          </div>
+          <div class="info-catalog__line">
+            <div class="product-item__reprice info-catalog__price _price">{{ product.special }} <span class="_rub"></span></div>
+            <a href="{{ product.href }}" class="info-catalog__link main__button">Подробнее</a>
+            <div class="info-catalog__price-old info-catalog__price _price">{{ product.price }}<span class="_rub"></span></div>
+          </div>
+        </div>
+      </div>
+    </div> #}
+
+    <div class="product-layout swiper-slide">
+      <div class="catalog-item">
+        <div class="product-thumb opencart__product-thumb">
+          <div class="image"><a href="{{ product.href }}">
+            <img src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive swiper-lazy" />
+            <div class="img-catalog__stickers stickers">
+              <div class="stickers__sticker stickers__sale"></div>
+              {% if product.date_added == product.year_now %}
+              <div class="stickers__sticker stickers__new"></div>
+              {% endif %}
+            </div>
+          </a></div>
+          <div>
+            <div class="caption">
+              <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+              <p>{{ product.description }}</p>
+
+              {% if product.price %}
+              <p class="price _price info-catalog__price">
+                {% if not product.special %}
+                  {{ product.price }}
+                  <span class="_rub"></span>
+                {% else %} 
+                  <span class="price-new info-catalog__price">{{ product.special }}<span class="_rub"></span></span>
+                  <span class="price-old info-catalog__price">{{ product.price }}<span class="_rub"></span></span> 
+                {% endif %}
+                {% if product.tax %} 
+                  <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> 
+                {% endif %} 
+              </p>
+              {% endif %}
+
+              {% if product.rating %}
+              <div class="rating"> 
+                {% for i in 1..5 %}
+                  {% if product.rating < i %} 
+                    <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                  {% else %}
+                    <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                  {% endif %}
+                {% endfor %}
+              </div>
+              {% endif %}
+            </div>
+
+            <div class="button-group">
+              <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+              <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+              <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% endfor %}
+  </div>
+  <div class="more__item_next _icon-arrowright more__item"></div>
+  <div class="more__item_prev _icon-arrowleft more__item"></div>
+</div>

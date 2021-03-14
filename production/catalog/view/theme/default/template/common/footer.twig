@@ -1,0 +1,53 @@
+<footer class="footer">
+  <div class="footer__content _container">
+    <div class="footer__top">
+      <div class="footer__logo">
+        <img src="{{ logo }}" alt="logo">
+        <p>Качественный велопрокат,<br>сервис и запчасти!</p>
+      </div>
+      <div class="footer__contacts contacts-footer">
+        <div class="contacts-footer__title footer__title">Контактные данные</div>
+        <div class="contacts-footer__body">
+          <nav class="contacts-footer__nav">
+            <ul>
+              <li><a href="tel:{{ phone_split }}" class="contacts-footer__link _icon-phone">{{ phone }}</a>
+              </li>
+              <li><a href="mailto:{{ email }}" class="contacts-footer__link _icon-email">{{ email }}</a></li>
+              <li><span class="contacts-footer__link _icon-place">{{  address }}</span></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+      <div class="footer__partners partners-footer">
+        <div class="partners-footer__title footer__title">Способы оплаты</div>
+        <div class="partners-footer__body">
+          <img src="dist/img/icons/visa.svg" alt="visa">
+          <img src="dist/img/icons/mastercard.svg" alt="mastercard">
+        </div>
+      </div>
+      <div class="footer__social social-footer">
+        <div class="social-footer__title footer__title">Социальные сети</div>
+        <div class="social-footer__body">
+          <a href="{{ vk }}" class="_icon-vk"></a>
+          <a href="{{ whatsapp }}" class="_icon-whatsapp"></a>
+          <a href="{{ telegram }}" class="_icon-telegram"></a>
+        </div>
+      </div>
+    </div>
+    <div class="footer__mid">
+      <div class="footer__bicycle _ibg"><img src="image/catalog/bicycle.svg" alt=""></div>
+      <div class="footer__mountains _oldibg"><img src="image/catalog/mountains.svg" alt=""></div>
+    </div>
+  </div>
+</footer>
+</div>
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<script src="dist/js/vendors.min.js"></script>
+<script src="dist/js/app.js"></script>
+<!--
+OpenCart is open source software and you are free to remove the powered by OpenCart if you want, but its generally accepted practise to make a small donation.
+Please donate via PayPal to donate@opencart.com
+//-->
+</body></html>

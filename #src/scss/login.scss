@@ -1,0 +1,262 @@
+.account {
+   // .account__wrapper
+   &__wrapper {
+   }
+   // .account__header
+   &__header {
+   }
+   // .account__title
+   &__title {
+      p {
+         margin-top: 10px;
+         line-height: 24px;
+      }
+   }
+   // .account__subtitle
+   &__subtitle {
+      font-weight: 800;
+      font-size: 18px;
+      margin: 40px 0 20px;
+      &:first-child {
+         margin: 0 0 20px;
+      }
+   }
+   // .account__nav
+   &__nav {
+   }
+   // .account__list
+   &__list {
+      li {
+         margin: pxResponsive(30, 10) 0;
+      }
+      a {
+         line-height: 24px;
+      }
+   }
+   // .account__body
+   &__body {
+      width: 100%;
+      display: flex;
+      // @media screen and (min-width: $md3+px) {
+      //    overflow: hidden;
+      //    &:before {
+      //       content: "";
+      //       padding-top: 50%;
+      //       float: left;
+      //    }
+      // }
+      @media screen and (max-width: $md3+px) {
+         flex-direction: column;
+         align-items: center;
+         margin: 0 auto;
+      }
+   }
+   // .account__image
+   &__image {
+      width: 100%;
+      height: 100%;
+      img {
+         object-fit: contain;
+      }
+      @media screen and (max-width: $md2+px) {
+         width: 30%;
+      }
+      @media screen and (max-width: $md3+px) {
+         width: 100%;
+         max-width: 300px;
+         order: 2;
+         overflow: hidden;
+         &:before {
+            content: "";
+            padding-top: 100%;
+            float: left;
+         }
+      }
+   }
+   // .account__form
+   &__form {
+      width: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      @media screen and (max-width: $md2+px) {
+         width: 70%;
+      }
+      @media screen and (max-width: $md3+px) {
+         order: 1;
+         max-width: $md4 + px;
+         width: 100%;
+      }
+      @media screen and (max-width: $md4+px) {
+         max-width: none;
+      }
+   }
+   // .account__signup
+   &__signup {
+      background-color: $blue;
+      color: #fff;
+      text-align: center;
+      &:hover {
+         color: #fff;
+      }
+   }
+   // .account__forgotten
+   &__forgotten {
+      margin: 10px 0;
+      font-weight: 800;
+   }
+   // .account__link
+   &__link {
+      color: #2272a7;
+      font-weight: 800;
+   }
+   // .account__newsletter
+   &__newsletter {
+      label {
+         width: auto;
+      }
+      ._radio {
+         flex-direction: row;
+         @media screen and (max-width: $md4+px) {
+            margin: 0 -10px;
+         }
+         div {
+            margin: 0 10px;
+         }
+      }
+   }
+   // .account__agree
+   &__agree {
+   }
+}
+
+.form-login .form__line.account__agree {
+   @media screen and (max-width: $md4+px) {
+      flex-direction: row;
+      align-items: center;
+   }
+}
+
+.form-login {
+   width: 100%;
+   @media screen and (max-width: $md4+px) {
+      padding-top: 10px;
+   }
+   .form__line {
+      @media screen and (max-width: 615px) {
+         flex-direction: row;
+         align-items: center;
+      }
+      @media screen and (max-width: $md4+px) {
+         flex-direction: column;
+         align-items: stretch;
+      }
+   }
+   .form__button {
+      margin: 0;
+      @media screen and (max-width: 615px) {
+         height: auto;
+         width: auto;
+      }
+      @media screen and (max-width: $md4+px) {
+         margin: 10px 0;
+         padding: 15px 0;
+      }
+   }
+
+   .form__title {
+      font-weight: 800;
+      font-size: 18px;
+      margin: 40px 0 20px;
+      &:first-child {
+         margin: 0 0 20px;
+      }
+   }
+
+   p {
+      width: calc(100% - 60px);
+      overflow: hidden;
+      text-overflow: ellipsis;
+      line-height: 24px;
+      @media screen and (max-width: $md4+px) {
+         margin-bottom: 10px;
+         width: auto;
+      }
+   }
+
+   label {
+      width: 80px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      @media screen and (max-width: $md4+px) {
+         margin-bottom: 10px;
+         width: auto;
+      }
+   }
+   input,
+   textarea {
+      width: calc(100% - 80px);
+      max-width: none;
+      margin-left: 10px;
+      background-color: #fff;
+      @media screen and (max-width: $md4+px) {
+         margin: 0;
+         width: 100%;
+      }
+   }
+   a {
+      text-align: center;
+   }
+}
+
+//=======================================================
+
+//Contacts
+.coctact__form {
+   .form-login {
+      padding-left: 0;
+      .form__button {
+         left: 90px;
+         @media screen and (max-width: $md4+px) {
+            left: 0;
+         }
+      }
+   }
+}
+
+.contact__title {
+   @media screen and (max-width: $md3+px) {
+      text-align: center;
+   }
+}
+
+//Account
+.myaccount__body {
+   @media screen and (max-width: $md3+px) {
+      align-items: flex-start;
+   }
+}
+
+//Orders
+.orders__body {
+   width: 100%;
+   .table-responsive {
+      overflow: auto;
+   }
+   td {
+      font-size: 14px;
+   }
+   h3 {
+      font-size: 16px;
+      font-weight: 800;
+      margin: 10px;
+   }
+}
+
+.well {
+   border-radius: 20px;
+}
+
+.text-danger {
+   margin-bottom: 40px;
+}

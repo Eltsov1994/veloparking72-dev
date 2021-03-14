@@ -1,0 +1,59 @@
+{{ header }}
+<div id="account-address" class="_start _container col-xs-12">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  {% if success %}
+  <div class="alert alert-success alert-dismissible"><i class="fa fa-check-circle"></i> {{ success }}</div>
+  {% endif %}
+  {% if error_warning %}
+  <div class="alert alert-warning"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+  {% endif %}
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <div class="account__title login__title main__title">
+        <h1>{{ text_address_book }}</h1>
+      </div>
+      {% if addresses %}
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          {% for result in addresses %}
+          <tr>
+            <td class="text-left">{{ result.address }}</td>
+            <td class="text-right" style="vertical-align: middle;">
+              <a href="{{ result.update }}" class="btn btn-info btn-bootstrap">{{ button_edit }}</a> &nbsp; 
+              <a href="{{ result.delete }}" class="btn btn-danger btn-bootstrap">{{ button_delete }}</a>
+            </td>
+          </tr>
+          {% endfor %}
+        </table>
+      </div>
+      {% else %}
+      <p>{{ text_empty }}</p>
+      {% endif %}
+      <div class="buttons clearfix" style="margin-top: 40px;">
+        <div class="pull-left">
+          <a href="{{ back }}" class="form__button main__button account__signup login__signup">{{ button_back }}</a>
+        </div>
+        <div class="pull-right">
+          <a href="{{ add }}" class="form__button main__button">{{ button_new_address }}</a>
+        </div>
+
+      </div>
+      
+
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+
+
+{{ footer }}

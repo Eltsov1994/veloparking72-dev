@@ -1,0 +1,8 @@
+@@include('libs/smoothScroll.js', {})
+@@include('libs/smoothScroll.min.polyfills.min.js', {})
+@@include('libs/swiper.js', {})
+@@include('libs/tippy.js', {})
+@@include('libs/lightgallery.min.js', {})
+@@include('libs/inputmask.min.js', {})
+@@include('libs/gsap.min.js', {})
+@@include('libs/blazy.min.js', {})

@@ -1,0 +1,17 @@
+_:-ms-fullscreen,
+:root {
+   .header {
+      // .header__logo
+      &__logo {
+         width: pxResponsive($logoSizeMob, $logoSizePC);
+      }
+      // .header__menu
+      &__menu {
+         width: calc(100% - (#{$logoSizePC + px} + 40px));
+      }
+      // .header__info
+      &__info {
+         width: calc(100% - 350px);
+      }
+   }
+}

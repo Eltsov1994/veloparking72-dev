@@ -1,0 +1,74 @@
+{{ header }}
+{# <div id="common-home" class="container _start">
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}{{ content_bottom }}</div>
+    {{ column_right }}</div>
+
+</div> #}
+
+{# BANNERS #}
+<section class="sales">
+	<div class="sales__wrapper">
+		<div class="sales__header">
+			<div class="_container"></div>
+			<h1>{{ name }}</h1>
+			<h2>{{ description }}</h2>
+		</div>
+	</div>
+	<div class="sales__slider _swiper">
+	{% for banner in banners %}
+	<div class="sales__slide">
+		<a href="{{ banner.link }}">
+			<img src="image/{{ banner.image }}" alt="{{ banner.title }}">
+		</a>
+	</div>
+	{% endfor %}
+	</div>
+</section>
+
+
+<section class="specials">
+	<div class="specials__wrapper _container">
+		<div class="specials__header main__title">
+			<h3>Специальные предложения</h3>
+		</div>
+		<div class="specials__tabs tabs _tabs">
+			<nav class="tabs__nav _swiper">
+				<div class="tabs__link _tabs-item main__link _active">Новинки</div>
+				<div class="tabs__link _tabs-item main__link">Акции</div>
+				<div class="tabs__link _tabs-item main__link">Рекомендуем</div>
+				{# <div class="tabs__link _tabs-item main__link">Хиты продаж</div> #}
+			</nav>
+			<div class="tabs__body">
+				{{ content_top }}
+			</div>
+		</div>
+	</div>
+</section>
+
+<section class="brands">
+	<div class="brands__wrapper _container">
+		<div class="brands__header main__title">
+			<h3>Каталог</h3>
+		</div>
+		<div class="brands__body">
+			{% for category in categories %}
+			<div class="brands__item main__card">
+				<a href="{{ category.href }}">
+					<img src="{{ category.image }}" alt="{{ category.name }}">
+					<p>{{ category.name }}</p>
+				</a>
+			</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>
+
+{{ footer }}

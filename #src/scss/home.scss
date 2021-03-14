@@ -1,0 +1,151 @@
+//====================================================================================================
+//! ======================SALES======================
+.sales {
+   margin-top: 250px;
+   @media screen and (max-width: $md2+px) {
+      margin-top: pxResponsive(110, 150);
+   }
+   // .sales__wrapper
+   &__wrapper {
+   }
+   // .sales__header
+   &__header {
+      margin: pxResponsive(40, 60) 0;
+      text-align: center;
+      h1 {
+         font-size: pxResponsive(45, 55);
+         font-weight: 800;
+      }
+      h2 {
+         font-size: pxResponsive(14, 16);
+         font-weight: 200;
+         margin-top: 10px;
+      }
+   }
+   // .sales__slider
+   &__slider {
+      position: relative;
+   }
+   // .sales__slide
+   &__slide {
+      img {
+         margin: 0 auto;
+         display: block;
+         max-width: 100%;
+         height: pxResponsive(115, 400);
+         object-fit: cover;
+         object-position: center;
+         @media screen and (min-width: $maxWidthContainer+px) {
+            height: auto;
+         }
+      }
+   }
+}
+
+//Dots
+.slider-pagging {
+   position: absolute;
+   bottom: 0;
+   left: 0;
+   margin: 15px;
+   span {
+      width: 12px;
+      height: 12px;
+      border: 3px $white solid;
+      display: inline-block;
+      border-radius: 50%;
+      margin: 0 7px;
+      cursor: pointer;
+      &:first-child {
+         margin-left: 0;
+      }
+      &:last-child {
+         margin-right: 0;
+      }
+      //Активный буллит
+      &.swiper-pagination-bullet-active {
+         background-color: $white;
+      }
+   }
+}
+
+//! ======================SPECIALS======================
+
+.specials {
+   padding: 60px 0;
+   // .specials__wrapper
+   &__wrapper {
+   }
+
+   // .specials__header
+   &__header {
+   }
+
+   // .specials__tabs
+   &__tabs {
+   }
+}
+
+.tabs {
+   // .tabs__nav
+   &__nav {
+      display: flex;
+      margin: 0 -2px;
+   }
+   // .tabs__link
+   &__link {
+      font-weight: 800;
+      font-size: 16px;
+      cursor: pointer;
+      color: $grey;
+      &:after {
+         height: 3px;
+      }
+      &._active {
+         color: $black;
+         &:after {
+            width: 100%;
+         }
+      }
+   }
+   // .tabs__body
+   &__body {
+      margin-top: 20px;
+   }
+   // .tabs__item-wrapper
+   &__item-wrapper {
+      width: 100%;
+      margin: 0 0 40px;
+   }
+   // .tabs__item
+   &__item {
+      position: relative;
+      padding-top: 60px;
+      &._active {
+         display: flex;
+      }
+   }
+}
+
+//! ======================BRANDS======================
+
+.brands {
+   margin-bottom: 60px;
+   // .brands__wrapper
+   &__wrapper {
+   }
+   // .brands__header
+   &__header {
+   }
+   // .brands__body
+   &__body {
+      display: flex;
+      margin: -10px;
+      flex-wrap: wrap;
+   }
+   // .brands__item
+   &__item {
+   }
+}
+
+//====================================================================================================

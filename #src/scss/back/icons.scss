@@ -1,0 +1,115 @@
+@font-face {
+	font-family: "icons";
+	font-display: swap;
+	src: url("../fonts/icons.woff") format("woff"), url("../fonts/icons.woff2#icons") format("woff2");
+	font-weight: normal;
+	font-style: normal;
+	font-display: block;
+}
+%ic {
+	font-family: "icons";
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	line-height: 1;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+[class^="_icon-"],
+[class*=" _icon-"] {
+	&:before {
+		@extend %ic;
+		//display: block;
+	}
+}
+
+// ._icon-f:before { content: "\EA01"; }
+// ._icon-feather_edit:before { content: "\EA02"; }
+// ._icon-Group 18:before { content: "\EA03"; }
+// ._icon-Group 70:before { content: "\EA04"; }
+._icon-email:before {
+	content: "\e900";
+}
+._icon-login:before {
+	content: "\e901";
+}
+._icon-phone:before {
+	content: "\e902";
+}
+._icon-place:before {
+	content: "\e903";
+}
+._icon-registred:before {
+	content: "\e904";
+}
+._icon-clock:before {
+	content: "\e905";
+}
+._icon-cart:before {
+	content: "\e907";
+}
+._icon-search:before {
+	content: "\e906";
+}
+._icon-close:before {
+	content: "\e908";
+}
+._icon-arrowright:before {
+	content: "\e909";
+}
+._icon-arrowleft:before {
+	content: "\e90a";
+}
+._icon-arrowbottom:before {
+	content: "\e90b";
+}
+._icon-double-arrowrleft:before {
+	content: "\e90c";
+}
+._icon-double-arrowright:before {
+	content: "\e90d";
+}
+._icon-filter:before {
+	content: "\e90e";
+}
+._icon-done:before {
+	content: "\e90f";
+}
+._icon-delivery:before {
+	content: "\e910";
+}
+._icon-exchange:before {
+	content: "\e911";
+}
+._icon-payment:before {
+	content: "\e912";
+}
+._icon-warranty:before {
+	content: "\e913";
+}
+._icon-ruble:before {
+	content: "\e914";
+}
+._icon-trash:before {
+	content: "\e916";
+}
+._icon-telegram:before {
+	content: "\e915";
+}
+._icon-vk:before {
+	content: "\e917";
+}
+._icon-whatsapp:before {
+	content: "\e918";
+}
+._icon-info:before {
+	content: "\e919";
+}
+._icon-minus:before {
+	content: "\e91a";
+}
+._icon-plus:before {
+	content: "\e91b";
+}

@@ -1,0 +1,2523 @@
+2021-01-26 20:57:58 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+2021-01-26 20:58:37 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+2021-01-26 20:58:39 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+
+FILE: admin/controller/marketplace/install.php
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+2021-01-27 22:34:02 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+2021-01-27 22:35:51 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+2021-01-27 22:36:01 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+2021-02-04 16:10:29 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: Price Filter Slider
+
+FILE: catalog/controller/product/category.php
+CODE: $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+LINE: 198
+CODE: $pagination = new Pagination();
+LINE: 366
+CODE: $data['sorts'] = array();
+LINE: 262
+CODE: $data['limits'] = array();
+LINE: 339
+
+FILE: catalog/model/catalog/product.php
+CODE: $query = $this->db->query($sql);
+LINE: 210
+CODE: return $query->row['total'];
+LINE: 531
+----------------------------------------------------------------
+2021-02-04 16:16:26 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: Price Filter Slider
+
+FILE: catalog/controller/product/category.php
+CODE: $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+LINE: 198
+CODE: $pagination = new Pagination();
+LINE: 366
+CODE: $data['sorts'] = array();
+LINE: 262
+CODE: $data['limits'] = array();
+LINE: 339
+
+FILE: catalog/model/catalog/product.php
+CODE: $query = $this->db->query($sql);
+LINE: 210
+CODE: return $query->row['total'];
+LINE: 531
+----------------------------------------------------------------
+2021-02-04 16:22:05 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: LMCFilter
+
+FILE: admin/controller/catalog/filter.php
+CODE: $data['add'] = $this->url->link('catalog/filter/add', 'token=' . $this->session->data['token'] . $url, true);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: admin/model/catalog/filter.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "filter_description` WHERE filter_group_id = '" . (int)$filter_group_id . "'");
+LINE: 64
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fg.filter_group_id = '" . (int)$filter_group_id . "' AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+LINE: 68
+CODE: $sql = "SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+LINE: 78
+
+FILE: catalog/controller/product/category.php
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 26
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 158
+LINE: 259
+LINE: 334
+LINE: 369
+LINE: 439
+CODE: 'filter_filter'      => $filter,
+LINE: 199
+
+FILE: catalog/model/catalog/category.php
+CODE: $filter_group_query = $this->db->query("SELECT DISTINCT f.filter_group_id, fgd.name, fg.sort_order FROM " . DB_PREFIX . "filter f LEFT JOIN " . DB_PREFIX . "filter_group fg ON (f.filter_group_id = fg.filter_group_id) LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE f.filter_id IN (" . implode(',', $implode) . ") AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "' GROUP BY f.filter_group_id ORDER BY fg.sort_order, LCASE(fgd.name)");
+LINE: 26
+CODE: 'filter'          => $filter_data
+LINE: 54
+
+FILE: catalog/model/catalog/product.php
+CODE: $sql .= " GROUP BY p.product_id";
+LINE: 172
+CODE: $sql = "SELECT COUNT(DISTINCT p.product_id) AS total";
+LINE: 433
+CODE: $query = $this->db->query($sql);
+LINE: 547
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: Price Filter Slider
+CODE: $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+LINE: 219
+CODE: $pagination = new Pagination();
+LINE: 408
+CODE: $data['sorts'] = array();
+LINE: 290
+CODE: $data['limits'] = array();
+LINE: 374
+CODE: $query = $this->db->query($sql);
+LINE: 222
+CODE: return $query->row['total'];
+LINE: 561
+----------------------------------------------------------------
+2021-02-04 16:22:08 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: LMCFilter
+
+FILE: admin/controller/catalog/filter.php
+CODE: $data['add'] = $this->url->link('catalog/filter/add', 'token=' . $this->session->data['token'] . $url, true);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: admin/model/catalog/filter.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "filter_description` WHERE filter_group_id = '" . (int)$filter_group_id . "'");
+LINE: 64
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fg.filter_group_id = '" . (int)$filter_group_id . "' AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+LINE: 68
+CODE: $sql = "SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+LINE: 78
+
+FILE: catalog/controller/product/category.php
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 26
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 158
+LINE: 259
+LINE: 334
+LINE: 369
+LINE: 439
+CODE: 'filter_filter'      => $filter,
+LINE: 199
+
+FILE: catalog/model/catalog/category.php
+CODE: $filter_group_query = $this->db->query("SELECT DISTINCT f.filter_group_id, fgd.name, fg.sort_order FROM " . DB_PREFIX . "filter f LEFT JOIN " . DB_PREFIX . "filter_group fg ON (f.filter_group_id = fg.filter_group_id) LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE f.filter_id IN (" . implode(',', $implode) . ") AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "' GROUP BY f.filter_group_id ORDER BY fg.sort_order, LCASE(fgd.name)");
+LINE: 26
+CODE: 'filter'          => $filter_data
+LINE: 54
+
+FILE: catalog/model/catalog/product.php
+CODE: $sql .= " GROUP BY p.product_id";
+LINE: 172
+CODE: $sql = "SELECT COUNT(DISTINCT p.product_id) AS total";
+LINE: 433
+CODE: $query = $this->db->query($sql);
+LINE: 547
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: Price Filter Slider
+CODE: $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+LINE: 219
+CODE: $pagination = new Pagination();
+LINE: 408
+CODE: $data['sorts'] = array();
+LINE: 290
+CODE: $data['limits'] = array();
+LINE: 374
+CODE: $query = $this->db->query($sql);
+LINE: 222
+CODE: return $query->row['total'];
+LINE: 561
+----------------------------------------------------------------
+2021-02-04 17:08:22 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: LMCFilter
+
+FILE: admin/controller/catalog/filter.php
+CODE: $data['add'] = $this->url->link('catalog/filter/add', 'token=' . $this->session->data['token'] . $url, true);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: admin/model/catalog/filter.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "filter_description` WHERE filter_group_id = '" . (int)$filter_group_id . "'");
+LINE: 64
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fg.filter_group_id = '" . (int)$filter_group_id . "' AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+LINE: 68
+CODE: $sql = "SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+LINE: 78
+
+FILE: catalog/controller/product/category.php
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 26
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 158
+LINE: 259
+LINE: 334
+LINE: 369
+LINE: 439
+CODE: 'filter_filter'      => $filter,
+LINE: 199
+
+FILE: catalog/model/catalog/category.php
+CODE: $filter_group_query = $this->db->query("SELECT DISTINCT f.filter_group_id, fgd.name, fg.sort_order FROM " . DB_PREFIX . "filter f LEFT JOIN " . DB_PREFIX . "filter_group fg ON (f.filter_group_id = fg.filter_group_id) LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE f.filter_id IN (" . implode(',', $implode) . ") AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "' GROUP BY f.filter_group_id ORDER BY fg.sort_order, LCASE(fgd.name)");
+LINE: 26
+CODE: 'filter'          => $filter_data
+LINE: 54
+
+FILE: catalog/model/catalog/product.php
+CODE: $sql .= " GROUP BY p.product_id";
+LINE: 172
+CODE: $sql = "SELECT COUNT(DISTINCT p.product_id) AS total";
+LINE: 433
+CODE: $query = $this->db->query($sql);
+LINE: 547
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: Price Filter Slider
+CODE: $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+LINE: 219
+CODE: $pagination = new Pagination();
+LINE: 408
+CODE: $data['sorts'] = array();
+LINE: 290
+CODE: $data['limits'] = array();
+LINE: 374
+CODE: $query = $this->db->query($sql);
+LINE: 222
+CODE: return $query->row['total'];
+LINE: 561
+----------------------------------------------------------------
+2021-02-04 17:08:25 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: LMCFilter
+
+FILE: admin/controller/catalog/filter.php
+CODE: $data['add'] = $this->url->link('catalog/filter/add', 'token=' . $this->session->data['token'] . $url, true);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: admin/model/catalog/filter.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "filter_description` WHERE filter_group_id = '" . (int)$filter_group_id . "'");
+LINE: 64
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fg.filter_group_id = '" . (int)$filter_group_id . "' AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+LINE: 68
+CODE: $sql = "SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+LINE: 78
+
+FILE: catalog/controller/product/category.php
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 26
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 158
+LINE: 259
+LINE: 334
+LINE: 369
+LINE: 439
+CODE: 'filter_filter'      => $filter,
+LINE: 199
+
+FILE: catalog/model/catalog/category.php
+CODE: $filter_group_query = $this->db->query("SELECT DISTINCT f.filter_group_id, fgd.name, fg.sort_order FROM " . DB_PREFIX . "filter f LEFT JOIN " . DB_PREFIX . "filter_group fg ON (f.filter_group_id = fg.filter_group_id) LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE f.filter_id IN (" . implode(',', $implode) . ") AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "' GROUP BY f.filter_group_id ORDER BY fg.sort_order, LCASE(fgd.name)");
+LINE: 26
+CODE: 'filter'          => $filter_data
+LINE: 54
+
+FILE: catalog/model/catalog/product.php
+CODE: $sql .= " GROUP BY p.product_id";
+LINE: 172
+CODE: $sql = "SELECT COUNT(DISTINCT p.product_id) AS total";
+LINE: 433
+CODE: $query = $this->db->query($sql);
+LINE: 547
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: Price Filter Slider
+CODE: $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+LINE: 219
+CODE: $pagination = new Pagination();
+LINE: 408
+CODE: $data['sorts'] = array();
+LINE: 290
+CODE: $data['limits'] = array();
+LINE: 374
+CODE: $query = $this->db->query($sql);
+LINE: 222
+CODE: return $query->row['total'];
+LINE: 561
+----------------------------------------------------------------
+2021-02-04 17:15:18 - MOD: Modification Default
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: LMCFilter
+FILE: admin/controller/catalog/filter.php
+CODE: $data['add'] = $this->url->link('catalog/filter/add', 'token=' . $this->session->data['token'] . $url, true);
+NOT FOUND!
+FILE: admin/model/catalog/filter.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "filter_description` WHERE filter_group_id = '" . (int)$filter_group_id . "'");
+LINE: 64
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fg.filter_group_id = '" . (int)$filter_group_id . "' AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+LINE: 68
+CODE: $sql = "SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+LINE: 78
+FILE: catalog/controller/product/category.php
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 26
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 158
+LINE: 259
+LINE: 334
+LINE: 369
+LINE: 439
+CODE: 'filter_filter'      => $filter,
+LINE: 199
+FILE: catalog/model/catalog/category.php
+CODE: $filter_group_query = $this->db->query("SELECT DISTINCT f.filter_group_id, fgd.name, fg.sort_order FROM " . DB_PREFIX . "filter f LEFT JOIN " . DB_PREFIX . "filter_group fg ON (f.filter_group_id = fg.filter_group_id) LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE f.filter_id IN (" . implode(',', $implode) . ") AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "' GROUP BY f.filter_group_id ORDER BY fg.sort_order, LCASE(fgd.name)");
+LINE: 26
+CODE: 'filter'          => $filter_data
+LINE: 54
+FILE: catalog/model/catalog/product.php
+CODE: $sql .= " GROUP BY p.product_id";
+LINE: 172
+CODE: $sql = "SELECT COUNT(DISTINCT p.product_id) AS total";
+LINE: 433
+CODE: $query = $this->db->query($sql);
+LINE: 547
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: Price Filter Slider
+CODE: $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+LINE: 219
+CODE: $pagination = new Pagination();
+LINE: 408
+CODE: $data['sorts'] = array();
+LINE: 290
+CODE: $data['limits'] = array();
+LINE: 374
+CODE: $query = $this->db->query($sql);
+LINE: 222
+CODE: return $query->row['total'];
+LINE: 561
+----------------------------------------------------------------
+2021-02-04 17:38:52 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: LMCFilter
+
+FILE: admin/controller/catalog/filter.php
+CODE: $data['add'] = $this->url->link('catalog/filter/add', 'token=' . $this->session->data['token'] . $url, true);
+NOT FOUND - OPERATIONS ABORTED!
+
+FILE: admin/model/catalog/filter.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "filter_description` WHERE filter_group_id = '" . (int)$filter_group_id . "'");
+LINE: 64
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fg.filter_group_id = '" . (int)$filter_group_id . "' AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'");
+LINE: 68
+CODE: $sql = "SELECT * FROM `" . DB_PREFIX . "filter_group` fg LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE fgd.language_id = '" . (int)$this->config->get('config_language_id') . "'";
+LINE: 78
+
+FILE: catalog/controller/product/category.php
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 26
+CODE: if (isset($this->request->get['filter'])) {
+LINE: 158
+LINE: 259
+LINE: 334
+LINE: 369
+LINE: 439
+CODE: 'filter_filter'      => $filter,
+LINE: 199
+
+FILE: catalog/model/catalog/category.php
+CODE: $filter_group_query = $this->db->query("SELECT DISTINCT f.filter_group_id, fgd.name, fg.sort_order FROM " . DB_PREFIX . "filter f LEFT JOIN " . DB_PREFIX . "filter_group fg ON (f.filter_group_id = fg.filter_group_id) LEFT JOIN " . DB_PREFIX . "filter_group_description fgd ON (fg.filter_group_id = fgd.filter_group_id) WHERE f.filter_id IN (" . implode(',', $implode) . ") AND fgd.language_id = '" . (int)$this->config->get('config_language_id') . "' GROUP BY f.filter_group_id ORDER BY fg.sort_order, LCASE(fgd.name)");
+LINE: 26
+CODE: 'filter'          => $filter_data
+LINE: 54
+
+FILE: catalog/model/catalog/product.php
+CODE: $sql .= " GROUP BY p.product_id";
+LINE: 172
+CODE: $sql = "SELECT COUNT(DISTINCT p.product_id) AS total";
+LINE: 433
+CODE: $query = $this->db->query($sql);
+LINE: 547
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: Price Filter Slider
+CODE: $product_total = $this->model_catalog_product->getTotalProducts($filter_data);
+LINE: 219
+CODE: $pagination = new Pagination();
+LINE: 408
+CODE: $data['sorts'] = array();
+LINE: 290
+CODE: $data['limits'] = array();
+LINE: 374
+CODE: $query = $this->db->query($sql);
+LINE: 222
+CODE: return $query->row['total'];
+LINE: 561
+----------------------------------------------------------------
+MOD: Prosto filter
+CODE: public function index() {
+LINE: 7
+CODE: getCategoryFilters($category_id)
+LINE: 14
+CODE: public function getCategories
+LINE: 19
+CODE: $sql .= " LEFT JOIN " . DB_PREFIX . "product_filter pf ON (p2c.product_id = pf.product_id) LEFT JOIN " . DB_PREFIX . "product p ON (pf.product_id = p.product_id)";
+LINE: 74
+LINE: 457
+CODE: $sql .= " AND pf.filter_id IN (" . implode(',', $implode) . ")";
+LINE: 125
+LINE: 533
+----------------------------------------------------------------
+2021-02-04 17:58:03 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+2021-02-04 17:58:45 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+MOD: Prosto filter
+
+FILE: catalog/controller/product/category.php
+CODE: public function index() {
+LINE: 7
+
+FILE: catalog/model/catalog/category.php
+CODE: getCategoryFilters($category_id)
+LINE: 14
+CODE: public function getCategories
+LINE: 19
+
+FILE: catalog/model/catalog/product.php
+CODE: $sql .= " LEFT JOIN " . DB_PREFIX . "product_filter pf ON (p2c.product_id = pf.product_id) LEFT JOIN " . DB_PREFIX . "product p ON (pf.product_id = p.product_id)";
+LINE: 74
+LINE: 431
+CODE: $sql .= " AND pf.filter_id IN (" . implode(',', $implode) . ")";
+LINE: 125
+LINE: 507
+----------------------------------------------------------------
+2021-02-04 18:26:28 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------
+2021-02-07 20:33:43 - MOD: Modification Default
+
+FILE: system/engine/action.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 69
+
+FILE: system/engine/loader.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 77
+LINE: 151
+LINE: 168
+
+FILE: system/library/config.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 59
+
+FILE: system/library/language.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 67
+LINE: 73
+
+FILE: system/library/template/template.php
+REGEX: ~(require|include)(_once)?\(([^)]+)~
+LINE: 18
+
+FILE: system/library/template/twig.php
+CODE: $loader = new \Twig_Loader_Filesystem(DIR_TEMPLATE);
+LINE: 19
+----------------------------------------------------------------
+MOD: Ajax Quick Checkout
+
+FILE: catalog/controller/checkout/checkout.php
+CODE: if (file_exists(DIR_TEMPLATE . $this->config->get('config_template') . '/template/checkout/checkout.tpl')) {
+NOT FOUND - OPERATIONS ABORTED!
+CODE: $this->response->setOutput($this->load->view('checkout/checkout', $data));
+LINE: 98
+CODE: $data['header'] = $this->load->controller('common/header');
+LINE: 101
+
+FILE: system/library/cart/tax.php
+CODE: final class Tax {
+LINE: 8
+----------------------------------------------------------------
+MOD: Custom Custom XML for Opencart
+
+FILE: admin/controller/common/column_left.php
+CODE: if ($catalog) {
+LINE: 133
+
+FILE: admin/language/en-gb/common/column_left.php
+CODE: $_['text_banner']
+LINE: 9
+
+FILE: admin/language/ru-ru/common/column_left.php
+CODE: $_['text_banner']
+LINE: 14
+----------------------------------------------------------------
+MOD: d_opencart_patch
+
+FILE: admin/controller/user/user_permission.php
+CODE: $path[] = $file . '/*';
+LINE: 341
+CODE: $permission = substr($controller, 0, strrpos($controller, '.'));
+LINE: 357
+
+FILE: admin/model/setting/extension.php
+CODE: $query = $this->db->query("SELECT * FROM `" . DB_PREFIX . "extension_path` WHERE `extension_install_id` = '" . (int)$extension_install_id . "' ORDER BY `date_added` ASC");
+LINE: 72
+
+FILE: admin/model/setting/modification.php
+CODE: $this->db->query("DELETE FROM `" . DB_PREFIX . "modification` WHERE `extension_install_id` = '" . (int)$extension_install_id . "'");
+LINE: 11
+
+FILE: admin/controller/marketplace/install.php
+CODE: $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
+LINE: 506
+CODE: $this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
+LINE: 514
+
+FILE: admin/controller/common/filemanager.php
+CODE: $files = glob($directory . '/' . $filter_name . '*.{jpg,jpeg,png,gif,JPG,JPEG,PNG,GIF}', GLOB_BRACE);
+LINE: 47
+CODE: 'jpg',
+LINE: 241
+CODE: 'image/jpeg',
+LINE: 254
+
+FILE: admin/view/template/common/filemanager.twig
+CODE: <img src="{{ image.thumb }}" alt="{{ image.name }}" title="{{ image.name }}" />
+LINE: 33
+
+FILE: admin/view/template/common/header.twig
+CODE: </header>
+LINE: 85
+
+FILE: admin/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/tool/image.php
+CODE: public function resize($filename, $width, $height) {
+LINE: 18
+
+FILE: catalog/model/localisation/language.php
+CODE: $language_data = $this->cache->get('language');
+LINE: 9
+
+FILE: system/config/catalog.php
+CODE: 'view/*/before' => array(
+LINE: 58
+CODE: 'controller/*/after'  => array(
+LINE: 63
+----------------------------------------------------------------
+MOD: d_twig_manager
+CODE: $template = new Template($this->registry->get('config')->get('template_engine'));
+LINE: 118
+
+FILE: system/library/template.php
+CODE: public function __construct($adaptor) {
+LINE: 21
+CODE: $this->adaptor = new $class();
+LINE: 28
+CODE: private $data = array();
+LINE: 8
+CODE: public function __construct() {
+LINE: 10
+CODE: \Twig_Autoloader::register();
+LINE: 21
+CODE: $this->twig = new \Twig_Environment($loader, $config);
+LINE: 54
+
+FILE: catalog/controller/event/theme.php
+CODE: $twig = new \Twig_Environment($loader, $config);
+LINE: 26
+----------------------------------------------------------------
+MOD: Localcopy OCMOD Install Fix
+CODE: if ($safe) {
+LINE: 165
+CODE: if (is_dir($file) && !is_dir($path)) {
+LINE: 221
+----------------------------------------------------------------

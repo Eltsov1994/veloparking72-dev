@@ -1,0 +1,163 @@
+.paginator {
+   margin-top: 50px;
+   // .paginator__wrapper
+   &__wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      @media screen and (max-width: $md2+px) {
+         align-items: center;
+      }
+   }
+   // .paginator__body
+   &__body {
+      display: flex;
+      justify-content: center;
+      @media screen and (min-width: $md1+px) {
+         width: calc(100% - 310px);
+      }
+      @media screen and (max-width: $md4+px) {
+         flex-direction: column;
+      }
+   }
+   // .paginator__arrow-left
+   &__arrow-left {
+   }
+   // .paginator__numbers
+   &__numbers {
+      display: flex;
+      margin: 0 10px;
+      display: flex;
+      justify-content: center;
+
+      @media screen and (max-width: $md4+px) {
+         margin: 20px 0;
+      }
+      span {
+         width: 40px;
+         height: 40px;
+         border-radius: 50%;
+         margin: 0 5px;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         font-weight: 800;
+         color: #141215;
+         transition: all 0.1s ease;
+         cursor: pointer;
+         @media screen and (min-width: $md2+px) {
+            &:hover {
+               background-color: $yellow;
+            }
+         }
+         &._active {
+            background-color: $yellow;
+         }
+      }
+   }
+   // .paginator__arrow-right
+   &__arrow-right {
+   }
+}
+.paginator-left {
+   display: flex;
+   align-items: center;
+   @media screen and (max-width: $md4+px) {
+      flex-direction: column;
+   }
+   span {
+      background-color: #958a8e;
+      width: 30px;
+      height: 30px;
+      opacity: 0.6;
+      border-radius: 50%;
+      margin: 0 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 10px;
+      transition: all 0.1s ease;
+      @media screen and (min-width: $md2+px) {
+         &:not(._disable):hover {
+            color: #000;
+            background-color: $yellow;
+            cursor: pointer;
+         }
+      }
+      @media screen and (max-width: $md4+px) {
+         width: 250px;
+         height: 35px;
+         border-radius: 10px;
+         //background-color: #1c75b4;
+         &.paginator-left__start {
+            display: none;
+         }
+      }
+   }
+   // .paginator-left__start
+   &__start {
+   }
+   // .paginator-left__prev
+   &__prev {
+      //position: relative;
+      @media screen and (max-width: $md4+px) {
+         &:after {
+            content: "Назад";
+            position: relative;
+            font-size: 16px;
+            margin-left: 10px;
+         }
+      }
+   }
+}
+.paginator-right {
+   display: flex;
+   align-items: center;
+   @media screen and (max-width: $md4+px) {
+      flex-direction: column;
+   }
+   span {
+      background-color: #958a8e;
+      width: 30px;
+      height: 30px;
+      opacity: 0.6;
+      border-radius: 50%;
+      margin: 0 5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      font-size: 10px;
+      transition: all 0.1s ease;
+      @media screen and (min-width: $md2+px) {
+         &:not(._disable):hover {
+            cursor: pointer;
+            color: #000;
+            background-color: $yellow;
+         }
+      }
+      @media screen and (max-width: $md4+px) {
+         width: 250px;
+         height: 35px;
+         border-radius: 10px;
+         &.paginator-right__end {
+            display: none;
+         }
+      }
+   }
+   // .paginator-right__next
+   &__next {
+      @media screen and (max-width: $md4+px) {
+         &:after {
+            content: "Вперёд";
+            position: relative;
+            font-size: 16px;
+            margin-left: 10px;
+         }
+      }
+   }
+   // .paginator-right__end
+   &__end {
+   }
+}

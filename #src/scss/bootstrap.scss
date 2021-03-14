@@ -1,0 +1,53 @@
+//* CheckOut
+
+//? Верхние кнопки (главные)
+// ===================================
+//Select
+#d_quickcheckout .btn-primary,
+#d_quickcheckout .btn-primary:hover,
+#d_quickcheckout .btn-primary:active,
+#d_quickcheckout .btn-primary.active,
+#d_quickcheckout .btn-primary.disabled,
+#d_quickcheckout .btn-primary[disabled] {
+   background-color: $yellow;
+   background-image: none;
+   color: $black;
+   border-color: $yellow;
+}
+
+//Other
+#d_quickcheckout .btn-group-justified > .btn-group .btn {
+   overflow: hidden;
+   text-overflow: ellipsis;
+   transition: all 0.3s ease;
+}
+
+//? FIX
+#d_quickcheckout .form-horizontal .control-label {
+   text-align: left;
+}
+
+#d_quickcheckout .table-bordered > tbody > tr > td,
+#d_quickcheckout .table-bordered > tbody > tr > th,
+#d_quickcheckout .table-bordered > tfoot > tr > td,
+#d_quickcheckout .table-bordered > tfoot > tr > th,
+#d_quickcheckout .table-bordered > thead > tr > td,
+#d_quickcheckout .table-bordered > thead > tr > th {
+   font-size: 14px;
+}
+
+#d_quickcheckout textarea {
+   margin-top: 20px;
+}
+
+.btn-bootstrap {
+   padding: 7.5px 12px;
+}
+
+td {
+   font-size: 14px;
+}
+
+.buttons {
+   margin: 1em 0;
+}

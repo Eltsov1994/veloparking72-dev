@@ -1,0 +1,187 @@
+.bf-panel-wrapper {
+   margin: 0 20px;
+   .box-heading {
+      display: flex;
+      justify-content: space-between;
+      text-transform: uppercase;
+      color: $grey;
+      font-weight: 800;
+      letter-spacing: 1px;
+      font-size: 16px;
+      padding: 10px ​12px;
+      border: none;
+      .filters-catalogies__close {
+         display: none;
+         @media screen and (max-width: $md3+px) {
+            display: block;
+         }
+      }
+   }
+   .bf-attr-block {
+      position: relative;
+      margin: 30px 0;
+      border: 1px #00000024 solid !important;
+      border-radius: 10px;
+      .bf-attr-header {
+         position: relative;
+         display: flex;
+         align-items: center;
+         cursor: pointer;
+         border: none;
+         border-radius: 10px;
+         padding: 20px 55px 10px 20px;
+         background-color: transparent;
+         z-index: 2;
+         text-transform: uppercase;
+         color: $grey;
+         font-weight: 800;
+         letter-spacing: 1px;
+         font-size: 13px;
+         &:after {
+            content: "";
+            position: relative;
+            width: 100%;
+            height: 0.1px;
+            margin: 15px;
+            background-color: #958a8e;
+         }
+         .bf-arrow {
+            position: absolute;
+            right: 22px;
+         }
+      }
+      .bf-sliding-cont {
+         position: relative;
+         background-color: transparent;
+         top: -10px;
+         padding: 10px 0 0px;
+         border-radius: 0 0 10px 10px;
+         &._active {
+            padding: 10px 0 20px;
+         }
+         .bf-expanded {
+            //height: auto !important;
+         }
+         input {
+            display: none;
+         }
+      }
+   }
+   .bf-price-filter {
+      .bf-cur-symb {
+         display: flex;
+         align-items: center;
+         justify-content: center;
+
+         input {
+            width: calc(50% - 35px);
+            height: 30px;
+            vertical-align: middle;
+            border: 1px solid #cbcbcb;
+            border-left: 0;
+            background-color: #fff;
+            font-size: 13px;
+            padding: 0 5px;
+            border-radius: 0 10px 10px 0;
+            margin: 0 2px 0 -3px;
+            display: block;
+            &:before {
+               content: "";
+               width: 21px;
+               height: 20px;
+               display: inline-block;
+               border: 1px solid #cbcbcb;
+               border-right: 0;
+               padding-top: 4px;
+               vertical-align: top;
+               text-align: right;
+               color: #a5a5a5;
+               border-radius: 2px 0 0 2px;
+               -webkit-border-radius: 2px 0 0 2px;
+               -moz-border-radius: 2px 0 0 2px;
+               margin-left: 2px;
+            }
+            @media screen and (max-width: $md4+px) {
+               font-size: 16px;
+            }
+         }
+         .bf-pre-range {
+            position: relative;
+            width: 21px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            border: 1px solid #cbcbcb;
+            border-right: 0;
+            padding-left: 5px;
+            background-color: #fff;
+            vertical-align: top;
+            text-align: right;
+            color: #a5a5a5;
+            border-radius: 10px 0 0 10px;
+            margin-left: 2px;
+         }
+      }
+      .bf-price-slider-container {
+         margin-top: 15px;
+         .ui-slider-handle {
+            background: #cbcbcb;
+            cursor: pointer;
+            width: 1em;
+            height: 1em;
+         }
+         .ui-slider-range {
+            background: $yellow;
+         }
+      }
+   }
+}
+
+.bf-buttonclear,
+.bf-buttonsubmit {
+   width: 100%;
+   padding: 15px 30px;
+   text-align: center !important;
+   background: #ddd;
+   border-radius: 10px;
+   font-weight: 800;
+   letter-spacing: 1px;
+   text-transform: uppercase;
+   font-size: 12px;
+   color: $black;
+   text-decoration: none;
+   border: none;
+   display: inline-block;
+   margin: 5px 0;
+   &:hover,
+   &:focus,
+   &:active:focus {
+      background: #ddd;
+      color: $black;
+      border: none;
+   }
+   @media screen and (min-width: $md2+px) {
+      &:hover {
+         opacity: 0.7;
+      }
+   }
+}
+
+.bf-buttonsubmit {
+   background: $yellow;
+   &:hover,
+   &:focus,
+   &:active:focus {
+      background: $yellow;
+      color: $black;
+      border: none;
+   }
+}
+
+.bf-panel-wrapper .box {
+   border: none;
+}
+
+.bf-empty-product-list-msg {
+   margin: 20px;
+}
