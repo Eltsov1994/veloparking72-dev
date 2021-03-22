@@ -260,3 +260,45 @@ function specialsInit() {
 	});
 }
 
+
+
+// ПРОИЗВОДИТЕЛИ
+manufacturersInit();
+function manufacturersInit() {
+	let slider = document.querySelectorAll('.slider-manufacturers');
+	if (slider.length){
+		new Swiper('.slider-manufacturers', {
+			observer: true,
+			observeParents: true,
+			slidesPerView: '7',
+			speed: 300,
+			spaceBetween: 30,
+			autoHeight: false,
+			lazy: true,
+			// Arrows
+			navigation: {
+				nextEl: '.slider-manufacturers .more__item_next',
+				prevEl: '.slider-manufacturers .more__item_prev',
+			},
+
+			breakpoints: {
+				320: {
+					slidesPerView: 2,
+				},
+				479.98: {
+					slidesPerView: 4,
+				},
+				767.98: {
+					slidesPerView: 5,
+				},
+				991.98: {
+					slidesPerView: 5,
+				},
+				1182: {
+					slidesPerView: 7,
+				},
+			},
+		});
+	}
+}
+

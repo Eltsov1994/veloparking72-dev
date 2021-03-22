@@ -263,6 +263,48 @@ function specialsInit() {
 	});
 }
 
+
+
+// ПРОИЗВОДИТЕЛИ
+manufacturersInit();
+function manufacturersInit() {
+	let slider = document.querySelectorAll('.slider-manufacturers');
+	if (slider.length){
+		new Swiper('.slider-manufacturers', {
+			observer: true,
+			observeParents: true,
+			slidesPerView: '7',
+			speed: 300,
+			spaceBetween: 30,
+			autoHeight: false,
+			lazy: true,
+			// Arrows
+			navigation: {
+				nextEl: '.slider-manufacturers .more__item_next',
+				prevEl: '.slider-manufacturers .more__item_prev',
+			},
+
+			breakpoints: {
+				320: {
+					slidesPerView: 2,
+				},
+				479.98: {
+					slidesPerView: 4,
+				},
+				767.98: {
+					slidesPerView: 5,
+				},
+				991.98: {
+					slidesPerView: 5,
+				},
+				1182: {
+					slidesPerView: 7,
+				},
+			},
+		});
+	}
+}
+
 ;
 // Dynamic Adapt v.1
 // HTML data-da="where(uniq class name),when(breakpoint),position(digi)"
@@ -501,6 +543,14 @@ function menu_close() {
 	let menuBody = document.querySelector(".menu__body");
 	iconMenu.classList.remove("_active");
 	menuBody.classList.remove("_active");
+}
+out_menu();
+function out_menu(){
+	let overlay = document.querySelector('.menu__overlay');
+	overlay.addEventListener('click', ()=>{
+		menu_close();
+		body_lock_remove();
+	});
 }
 //=================
 //BodyLock
@@ -1519,6 +1569,7 @@ function inputs_init(inputs) {
             },
           }).mask(input);
         }
+        console.log(input);
         if (input.classList.contains("_digital")) {
           input.classList.add("_mask");
           Inputmask("9{1,}", {
@@ -2105,82 +2156,23 @@ function clickCheckBoxFilter() {
         });
     }
 }
-
-
-
-delayQuery = 200;
-
-setTimeout(() => {
-    selectRegion();
-}, delayQuery);
-
-document.addEventListener("click", (e) => {
-    if (e.target.classList.contains("select__option")) {
-        let check = e.target
-            .closest(".select")
-            .querySelectorAll("#input-country");
-        if (check.length) {
-            setTimeout(() => {
-                selectRegion();
-            }, delayQuery);
-        }
-    }
-});
-
-function selectRegion() {
-    let check = document.querySelectorAll("#account-address");
-    if (check.length) {
-        let selectOrig = document.querySelectorAll("select");
-        selectOrig.forEach((select) => {
-            if (select.getAttribute("name") == "country_id") {
-                test(select.value);
-                setTimeout(() => {
-                    selectInit();
-
-                    let selectArr = document.querySelectorAll(
-                        ".select__options"
-                    );
-                    for (let index = 0; index < selectArr.length; index++) {
-                        const select = selectArr[index];
-                        let optionsArr = select.querySelectorAll(
-                            ".select__option"
-                        );
-                        optionsArr.forEach((option) => {
-                            option.addEventListener("click", (e) => {
-                                if (
-                                    e.target
-                                        .closest(".select")
-                                        .querySelector("#input-country")
-                                ) {
-                                    test(option.getAttribute("data-value"));
-                                    setTimeout(() => {
-                                        selectInit();
-                                    }, delayQuery);
-                                }
-                            });
-                        });
-                    }
-                }, delayQuery);
-            }
-        });
-    }
-}
 ;
 
 cartRequantity();
 function cartRequantity(){
    if ( $('.dropdown-cart__quantity').length ){
-
-      $('.dropdown-cart__quantity input').blur(()=>{ cartRefresh() });
+        $('.dropdown-cart__quantity input').blur(()=>{ 
+            var data = $("#form-cart-header").serialize();
+            cartRefresh(data);
+        });
    }
 }
 
-function cartRefresh(){
+function cartRefresh(data){
     $.ajax({
     url: "index.php?route=checkout/cart/edit",
     type: "post",
-    data: $("#form-cart").serialize(),
-    dataType: "html",
+    data: data,
     beforeSend: function () {
         // Добавляем лоадер
         popupLoaderAdd('popup-maincart__body');
@@ -2197,10 +2189,17 @@ function cartRefresh(){
 
         $('.header__cart').html(cart_button);
         $('.dropdown-cart').html(popup_content);
+
         halfedPrice();
         cartRequantity();
         cartQuanter();
         popupRefresh();
+        reqInput();
+
+        if ( $('#checkout-cart__input').length ){
+            $('#checkout-cart__input').val( $('#header-cart__input').val() );
+            reloadAll();
+        }
     },
     error: function (xhr, ajaxOptions, thrownError) {
         alert(
@@ -2225,7 +2224,9 @@ function cartQuanter(){
             var valInput = Number( $(input).val() );
             ($(this).hasClass('dropdown-cart__minus')) ? valInput = valInput - 1 : valInput = valInput + 1;
             $(input).val(valInput);
-            cartRefresh();
+
+            var data = $("#form-cart-header").serialize();
+            cartRefresh(data);
         });
     }
 }
@@ -2246,6 +2247,21 @@ function popupLoaderClear(){
 function popupLoaderAdd(className){
     // Удаляем лоадер
     $(`.${className}`).append('<div class="popup-loader"></div>');
+}
+
+// Input Digital
+reqInput();
+function reqInput(){
+
+    for (let index = 0; index < $('input._digital').length; index++) {
+        const input = $('input._digital')[index];
+        $(input).bind("change keyup input click keydown", function() {
+            if (this.value.match(/[^0-9]/g)) {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            }
+        });
+    }
+
 };
 
 //=========files/========================
@@ -2325,24 +2341,39 @@ function map(n) {
 
 initMap();
 function initMap() {
-	let mapWrap = document.querySelectorAll('#map');
-	if (mapWrap.length) {
-		let
-			geocode = document.querySelector('.geocode').innerHTML,
-			position = geocode.indexOf(','),
-			geocodeL = geocode.slice(0, position),
-			geocodeM = geocode.slice(position + 2);
-		map(1, geocodeL, geocodeM);
+	// let mapWrap = document.querySelectorAll('.map');
+	// if (mapWrap.length) {
+	// 	let
+	// 		geocode = document.querySelector('.geocode').innerHTML,
+	// 		position = geocode.indexOf(','),
+	// 		geocodeL = geocode.slice(0, position),
+	// 		geocodeM = geocode.slice(position + 2),
+	// 		mapId = ;
+	// 	//map(1, geocodeL, geocodeM);
+	// }
+	let maps = document.querySelectorAll('.map');
+	if ( maps.length ){
+		for (let index = 0; index < maps.length; index++) {
+			const map = maps[index];
+			let parent = map.parentElement;
+			let geocode = parent.querySelector('.geocode').innerHTML;
+			let position = geocode.indexOf(',');
+			let geocodeL = geocode.slice(0, position);
+			let geocodeM = geocode.slice(position + 2);
+			let map_id = map.getAttribute('id');
+
+			mapCreate(map_id, geocodeL, geocodeM);
+		}
 	}
 }
 
-
 // YA
-function map(n, geocodeL, geocodeM) {
+function mapCreate(map_id, geocodeL, geocodeM) {
+
 	ymaps.ready(init);
 	function init() {
 		// Создание карты.
-		var myMap = new ymaps.Map("map", {
+		var myMap = new ymaps.Map(map_id, {
 			// Координаты центра карты.
 			// Порядок по умолчанию: «широта, долгота».
 			// Чтобы не определять координаты центра карты вручную,

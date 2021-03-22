@@ -11,7 +11,7 @@
           {% if products or vouchers %}
           <h4 class="dropdown-cart__title">Корзина</h4>
           <li class="dropdown-cart__body">
-            <form action="" enctype="multipart/form-data" method="post" id="form-cart">
+            <form action="" enctype="multipart/form-data" method="post" id="form-cart-header">
               {% for product in products %}
                 <div class="dropdown-cart__item">
                   <div class="dropdown-cart__image">{% if product.thumb %} <a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" /></a> {% endif %}</div>
@@ -25,10 +25,17 @@
                   </div>
                   <div class="dropdown-cart__quantity">
                     <a href="#" class="dropdown-cart__minus _icon-minus"></a>
-                    <input type="text" class="input" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}">
+                    <input id="header-cart__input" type="text" class="input _digital" name="quantity[{{ product.cart_id }}]" value="{{ product.quantity }}">
                     <a href="#" class="dropdown-cart__plus _icon-plus"></a>
                   </div>
-                  <div class="dropdown-cart__price _rub _price">{{ product.price }}</div>
+                  <div class="dropdown-cart__price _price">
+                    {% if product['old_price'] is not empty %}
+                        <p class="_rub price-old">{{ product.old_price }}</p>
+                        <p class="_rub price-new">{{ product.price }}</p>
+                    {% else %}
+                        <p class="_rub">{{ product.price }}</p>
+                    {% endif %}
+                  </div>
                   <button type="button" onclick="cart.remove('{{ product.cart_id }}');" title="{{ button_remove }}" class="_icon-trash dropdown-cart__remove"></button>
                 </div>
               {% endfor %}
@@ -41,7 +48,9 @@
                 {% for total in totals %}
                 <tr>
                   <td class="text-right"><strong>{{ total.title }}</strong></td>
-                  <td class="text-right _price dropdown-cart__price _rub">{{ total.text }}</td>
+                  <td class="text-right _price dropdown-cart__price">
+                    <p class="_rub">{{ total.text }}</p>
+                  </td>
                 </tr>
                 {% endfor %}
               </table>
@@ -49,7 +58,6 @@
                 <button class="dropdown-cart__tocart _popup-close">Продолжить покупки</button>
                 <a class="dropdown-cart__tocheckout" href="{{ checkout }}">{{ text_checkout }}</a>
               </div>
-              {# <p class="text-right"><a href="{{ cart }}"><strong><i class="fa fa-shopping-cart"></i> {{ text_cart }}</strong></a>&nbsp;&nbsp;&nbsp;<a href="{{ checkout }}"><strong><i class="fa fa-share"></i> {{ text_checkout }}</strong></a></p> #}
             </div>
           </li>
           {% else %}

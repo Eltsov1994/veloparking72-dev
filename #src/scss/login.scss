@@ -96,6 +96,11 @@
       background-color: $blue;
       color: #fff;
       text-align: center;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
       &:hover {
          color: #fff;
       }
@@ -255,6 +260,7 @@
 
 .well {
    border-radius: 20px;
+   padding: pxResponsive(20, 30);
 }
 
 .text-danger {

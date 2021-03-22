@@ -72,7 +72,10 @@ class ControllerCommonContentTop extends Controller {
 					$output = $this->load->controller('extension/module/' . $part[0], $setting_info);
 
 					if ($output) {
-						$data['modules'][] = $output;
+						$data['modules'][] = array(
+							'name' => $setting_info['name'],
+							'content' => $output
+						);
 					}
 				}
 			}

@@ -12,6 +12,9 @@ class ControllerParserProducts extends Controller {
 
 		/* Каталог =================================================================== */
 
+		$manufacturer = $this->db->query("SELECT * FROM " . DB_PREFIX . "manufacturer")->rows;
+		$oc_category_path = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_path WHERE level = 1")->rows;
+
 		// oc_product
 		$product_db = $this->db->query("SELECT * FROM " . DB_PREFIX . "product")->rows;
 		foreach ($offers_default as $default_key => $default_value) {
@@ -29,6 +32,33 @@ class ControllerParserProducts extends Controller {
 
 			// Добавляем новые записи
 
+			// Производитель (только для велосипедов)
+			$manufacturer_id = 0;
+			foreach ($oc_category_path as $path_value) {
+				if ( $path_value['path_id'] == 1057 ){
+					if ( $path_value['category_id'] == trim($default_value -> categoryId) ){
+
+						if ( isset($default_value -> param) ){
+							foreach ($default_value -> param as $param_value) {
+								if ( trim($param_value['name']) == 'Бренд' ){
+
+									foreach ($manufacturer as $manufacturer_value) {
+										if ($manufacturer_value['name'] == trim($param_value)){
+											$manufacturer_id = $manufacturer_value['manufacturer_id'];
+										}
+									}
+
+								}
+							}
+						}
+						
+					}
+				}
+			}
+
+
+			
+			// Год выпуска
 			if ( isset( $default_value -> param ) ){
 				foreach ( $default_value -> param as $key => $value) {
 					if ( trim($value['name']) === 'Модельный год'){
@@ -36,6 +66,10 @@ class ControllerParserProducts extends Controller {
 						$date_available = date($model_year . "-m-d");
 						$date_added = date($model_year . "-m-d H:i:s");
 						break;
+					} else {
+						$model_year = '2020';
+						$date_available = date($model_year . "-m-d");
+						$date_added = date($model_year . "-m-d H:i:s");
 					}
 				}
 			} else {
@@ -51,7 +85,7 @@ class ControllerParserProducts extends Controller {
 			quantity = 999, 
 			stock_status_id = 5, 
 			image = '". trim($default_value -> picture) ."',  
-			manufacturer_id = ". trim($default_value -> categoryId) .",  
+			manufacturer_id = ". $manufacturer_id .",  
 			shipping = 1,  
 			price = ". trim($default_value -> {'price-0'}) .",  
 			tax_class_id = 0,  
@@ -65,6 +99,7 @@ class ControllerParserProducts extends Controller {
 			date_modified = '". $date_added . "'");
 
 		}
+		
 
 		// Нет в наличии
 		foreach ($product_db as $db_value){
@@ -78,6 +113,18 @@ class ControllerParserProducts extends Controller {
 			$this->db->query("UPDATE " . DB_PREFIX . "product SET
 			quantity = 0 
 			WHERE product_id = ". $db_value['product_id'] );
+		}
+
+
+		// oc_product_related_mn
+		$this->db->query("TRUNCATE TABLE " . DB_PREFIX . "product_related_mn");
+		$product_db = $this->db->query("SELECT * FROM " . DB_PREFIX . "product")->rows;
+		foreach ($product_db as $product_value) {
+
+			// Добавляем новые записи
+			$this->db->query("INSERT INTO " . DB_PREFIX . "product_related_mn SET 
+			product_id = ". $product_value['product_id'] .", 
+			manufacturer_id = ". $product_value['manufacturer_id']);
 		}
 
 
@@ -312,7 +359,6 @@ class ControllerParserProducts extends Controller {
 		}
 
 		// Аксессуары для велосипедов + Запчасти
-		$oc_category_path = $this->db->query("SELECT * FROM " . DB_PREFIX . "category_path WHERE level = 1")->rows;
 		foreach ($oc_category_path as $path_value) {
 			if ( $path_value['category_id'] !== $path_value['path_id'] && $path_value['path_id'] != 1057 ){
 
@@ -405,34 +451,6 @@ class ControllerParserProducts extends Controller {
 
 		/* SEO товары ================================================================ */
 
-		function clean_search_string($s) {
-			$s = preg_replace('/[^a-zA-ZА-Яа-я0-9 ]/ui', '',$s );
-			$s = preg_replace('/ /ui', '_',$s );
-			return $s;
-		}
-
-		function translit($s) {
-			$s = (string) $s; // преобразуем в строковое значение
-			$s = trim($s); // убираем пробелы в начале и конце строки
-			$s = function_exists('mb_strtolower') ? mb_strtolower($s) : strtolower($s); // переводим строку в нижний регистр (иногда надо задать локаль)
-			$s = strtr($s, array('а'=>'a','б'=>'b','в'=>'v','г'=>'g','д'=>'d','е'=>'e','ё'=>'e','ж'=>'j','з'=>'z','и'=>'i','й'=>'y','к'=>'k','л'=>'l','м'=>'m','н'=>'n','о'=>'o','п'=>'p','р'=>'r','с'=>'s','т'=>'t','у'=>'u','ф'=>'f','х'=>'h','ц'=>'c','ч'=>'ch','ш'=>'sh','щ'=>'shch','ы'=>'y','э'=>'e','ю'=>'yu','я'=>'ya','ъ'=>'','ь'=>''));
-			return $s; // возвращаем результат
-		}
-
-		
-		function array_unique_key($array, $key) { 
-			$tmp = $key_array = array(); 
-			$i = 0; 
-		
-			foreach($array as $val) { 
-				if (!in_array($val[$key], $key_array)) { 
-					$key_array[$i] = $val[$key]; 
-					$tmp[$i] = $val; 
-				} 
-				$i++; 
-			} 
-			return $tmp; 
-		}
 
 		foreach ($offers_default as $default_key => $default_value) {
 

@@ -1,0 +1,193 @@
+.simple-content {
+   .dropdown-cart__body {
+      background-color: #fff;
+      padding: 20px pxResponsive(10, 20);
+      border-radius: 10px;
+      .dropdown-cart__quantity {
+         height: auto;
+         border: none;
+         button {
+            color: $blue;
+            margin: 0 15px;
+            &:before {
+               font-size: 20px;
+            }
+            @media screen and (min-width: $md2+px) {
+               &:hover {
+                  opacity: 0.8;
+               }
+            }
+         }
+         input {
+            width: 40px;
+            padding: 10px 5px;
+            text-align: center;
+            height: auto;
+            margin: 0;
+         }
+      }
+   }
+   .dropdown-cart__footer {
+      margin-top: 20px;
+      display: flex;
+      justify-content: flex-end;
+      & > div {
+         max-width: 550px;
+         background-color: #fff;
+         border-radius: 10px;
+         padding: 12px;
+      }
+      .dropdown-cart__price {
+         width: 120px;
+      }
+      .table {
+         margin: 0;
+         tbody {
+            background-color: transparent;
+            tr > td {
+               border: none;
+               vertical-align: middle;
+            }
+         }
+      }
+   }
+
+   .simplecheckout-block {
+      background-color: #fff;
+      border-radius: 10px;
+      .checkout-heading {
+         box-shadow: 1px 1px 8px 0px rgba(34, 60, 80, 0.2);
+         border-radius: 0 0 20px 20px;
+         padding: 20px 25px;
+         font-size: 16px;
+         span::before,
+         &:before {
+            margin-right: 10px;
+            font-size: 14px;
+            padding: 10px;
+            border-radius: 50%;
+            background-color: $blue;
+            color: #fff;
+         }
+      }
+      .simplecheckout-block-content {
+         padding: 20px pxResponsive(10, 20);
+      }
+      input[type="radio"] {
+         top: 2px;
+      }
+   }
+   #simplecheckout_customer {
+      input[type="radio"] {
+         top: 10px;
+      }
+   }
+   .simplecheckout-button-block {
+      background: transparent;
+      margin: 40px 0;
+      padding: 0;
+      .btn-primary {
+         background-image: none;
+         background-color: $blue;
+         font-weight: 800;
+         color: #fff;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         position: relative;
+         padding: 15px 40px;
+         transition: all 0.3s ease;
+         font-size: 14px;
+         border-radius: 10px;
+         border: none;
+         line-height: initial;
+         @media screen and (min-width: $md2+px) {
+            &:hover {
+               opacity: 0.8;
+            }
+         }
+      }
+   }
+   .content {
+      font-size: 16px;
+   }
+   .form-group {
+      margin-bottom: 25px;
+   }
+   .simplecheckout-button-right {
+      @media screen and (max-width: $md4+px) {
+         float: none;
+      }
+   }
+   label {
+      line-height: 24px;
+      @media screen and (max-width: $md3+px) {
+         margin-bottom: 10px;
+      }
+   }
+
+   legend {
+      color: #444;
+      font-weight: 800;
+   }
+
+   .form-horizontal .control-label {
+      text-align: left;
+      &:before {
+         margin-right: 7px;
+      }
+   }
+
+   select.form-control,
+   textarea.form-control,
+   input[type="text"].form-control,
+   input[type="password"].form-control,
+   input[type="datetime"].form-control,
+   input[type="datetime-local"].form-control,
+   input[type="date"].form-control,
+   input[type="month"].form-control,
+   input[type="time"].form-control,
+   input[type="week"].form-control,
+   input[type="number"].form-control,
+   input[type="email"].form-control,
+   input[type="url"].form-control,
+   input[type="search"].form-control,
+   input[type="tel"].form-control,
+   input[type="color"].form-control {
+      font-size: 16px;
+   }
+}
+
+#simple_login {
+   padding: 20px 30px;
+   height: auto !important;
+   width: auto;
+
+   label {
+      margin-bottom: 5px;
+   }
+   .form-group {
+      a {
+         margin-top: 10px;
+         display: inline-block;
+      }
+   }
+}
+
+.simpleregister {
+   &-block-content {
+      padding: 10px 0;
+   }
+   &-button-block {
+      background: none;
+   }
+   &-button-right {
+      @media screen and (max-width: $md4+px) {
+         float: none;
+      }
+   }
+}
+
+.simplecheckout-error-text {
+   margin-top: 9px;
+}

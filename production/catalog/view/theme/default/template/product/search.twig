@@ -7,9 +7,9 @@
   </ul>
   <div class="row">{{ column_left }}
     {% if column_left and column_right %}
-    {% set class = 'col-sm-6' %}
+    {% set class = 'col-md-6 col-sm-5' %}
     {% elseif column_left or column_right %}
-    {% set class = 'col-sm-9' %}
+    {% set class = 'col-md-9 col-sm-8 with-column-left' %}
     {% else %}
     {% set class = 'col-sm-12' %}
     {% endif %}
@@ -71,60 +71,60 @@
         <input type="button" value="{{ button_search }}" id="button-search" class="btn btn-primary" />
       </div>
 
-      <h2>{{ text_search }}</h2>
+      {# <h2>{{ text_search }}</h2> #}
       {% if products %}
 
-      <div class="row opencart__center opencart__header-catalog">
-        <div class="col-md-2 col-sm-6 hidden-xs">
-          <div class="btn-group btn-group-sm">
-            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_list }}"><i class="fa fa-th-list"></i></button>
-            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_grid }}"><i class="fa fa-th"></i></button>
+        <div class="row opencart__center opencart__header-catalog">
+          <div class="col-md-2 col-sm-6 hidden-xs">
+            <div class="btn-group btn-group-sm">
+              <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_list }}"><i class="fa fa-th-list"></i></button>
+              <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_grid }}"><i class="fa fa-th"></i></button>
+            </div>
           </div>
-        </div>
-        <div class="col-md-4 col-xs-12">
-          <a href="{{ compare }}" id="compare-total" class="btn opencart__compare">{{ text_compare }}</a>
-        </div>
-        <div class="col-md-4 col-xs-12">
-          <div class="form-group opencart__select">
+          <div class="col-md-4 col-xs-12 opencart__compare-wrapper">
+            <a href="{{ compare }}" id="compare-total" class="btn opencart__compare">{{ text_compare }}</a>
+          </div>
+          <div class="col-md-4 col-xs-12 opencart__select">
             <label for="input-sort">{{ text_sort }}</label>
-            <select id="input-sort" class="form-control" onchange="location = this.value;">
+            <div class="form-group">
+              <select id="input-sort" class="form-control" onchange="location = this.value;">
 
-              {% for sorts in sorts %}
-              {% if sorts.value == '%s-%s'|format(sort, order) %}
+                {% for sorts in sorts %}
+                {% if sorts.value == '%s-%s'|format(sort, order) %}
 
-              <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
+                <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
 
-              {% else %}
+                {% else %}
 
-              <option value="{{ sorts.href }}">{{ sorts.text }}</option>
+                <option value="{{ sorts.href }}">{{ sorts.text }}</option>
 
-              {% endif %}
-              {% endfor %}
+                {% endif %}
+                {% endfor %}
 
-            </select>
+              </select>
+            </div>
           </div>
-        </div>
-        <div class="col-md-2 col-xs-12">
-          <div class="form-group opencart__select">
+          <div class="col-md-2 col-xs-12 opencart__select">
             <label for="input-limit">{{ text_limit }}</label>
-            <select id="input-limit" class="form-control" onchange="location = this.value;">
+            <div class="form-group">
+              <select id="input-limit" class="form-control" onchange="location = this.value;">
+                
+                {% for limits in limits %}
+                {% if limits.value == limit %}
+                
+                <option value="{{ limits.href }}" selected="selected">{{ limits.text }}</option>
+                
+                {% else %} 
+                
+                <option value="{{ limits.href }}">{{ limits.text }}</option>
+                
+                {% endif %}
+                {% endfor %}     
               
-              {% for limits in limits %}
-              {% if limits.value == limit %}
-              
-              <option value="{{ limits.href }}" selected="selected">{{ limits.text }}</option>
-              
-              {% else %} 
-              
-              <option value="{{ limits.href }}">{{ limits.text }}</option>
-              
-              {% endif %}
-              {% endfor %}     
-            
-            </select>
+              </select>
+            </div>
           </div>
         </div>
-      </div>
 
       <div class="row catalog-catalogies opencart__catalogies"> 
         {% for product in products %}
@@ -160,22 +160,27 @@
                   {% endif %}
 
                   {% if product.rating %}
-                  <div class="rating"> 
-                    {% for i in 1..5 %}
-                      {% if product.rating < i %} 
-                        <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                      {% else %}
-                        <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                      {% endif %}
-                    {% endfor %}
+                  <div class="rating__wrapper">
+                    <span class="rating__stars"> 
+                      {% for i in 1..5 %}
+                        {% if product.rating < i %} 
+                          <span class="fa fa-stack"><i class="_icon-star rating__stars-null fa fa-stack-1x"></i></span>
+                        {% else %}
+                          <span class="fa fa-stack"><i class="_icon-star rating__stars-null fa fa-stack-1x"></i><i class="_icon-star rating__stars-full fa fa-stack-1x"></i></span>
+                        {% endif %}
+                      {% endfor %}
+                    </span>
                   </div>
                   {% endif %}
+
+                  <div class="info-catalog__options">
+                    <button class="info-catalog__wishlist" type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+                    <button class="info-catalog__compare" type="button" onclick="compare.add('{{ product.product_id }}');">В сравнение</button>
+                  </div>
                 </div>
 
-                <div class="button-group">
-                  <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
-                  <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
-                  <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+                <div class="catalog-catalogies__footer">
+                  <a href="{{ product.href }}"><i class="fa fa-shopping-cart"></i><span>Подробнее</span></a>
                 </div>
 
               </div>

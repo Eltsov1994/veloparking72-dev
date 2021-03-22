@@ -69,25 +69,39 @@
    border: none;
    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.07);
    margin: 0 0 40px 0;
+   padding: 8px 5px;
 
    & > li {
       max-width: 100%;
-      overflow: hidden;
-      text-overflow: ellipsis;
       padding: 5px pxResponsive(15, 20);
+      margin: 5px 0;
       &:after {
-         width: 10px;
-         height: 10px;
-         top: 2px;
+         width: 8px;
+         height: 8px;
+         top: 9px;
+         border-color: $blue;
+         border-width: 2px;
+      }
+      &:last-child {
+         &:after {
+            content: none;
+         }
       }
    }
 
    a {
+      max-width: 100%;
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
       font-weight: 800;
-      transition: all 0.1s ease;
-      color: $black;
-      &:hover {
-         color: $black;
+      color: $blue;
+      text-decoration: underline;
+      @media screen and (min-width: $md2+px) {
+         &:hover {
+            text-decoration: none;
+            opacity: 0.8;
+         }
       }
    }
 }
@@ -361,13 +375,15 @@
       h4 {
          line-height: 24px;
          font-size: 16px;
+         min-height: 72px;
          a {
             display: block;
             overflow: hidden;
          }
       }
-      p {
+      > p {
          &:nth-child(2) {
+            min-height: 100px;
             line-height: 20px;
             font-size: 13px;
             overflow: hidden;
@@ -378,6 +394,9 @@
       .caption {
          justify-content: center;
       }
+   }
+   .price-old {
+      margin-left: 0;
    }
 }
 
@@ -471,24 +490,10 @@ textarea {
       }
       .list-unstyled {
          li {
-            margin: 30px 0;
+            margin: 10px 0;
          }
       }
 
-      //Табы
-      .nav {
-         & > li {
-            & > a {
-               color: $black;
-            }
-            &.active {
-               & > a {
-                  background-color: $yellow;
-                  color: $black;
-               }
-            }
-         }
-      }
       .tab-content {
          line-height: 24px;
          padding: 20px 0;
@@ -510,31 +515,35 @@ textarea {
       }
       .nav-tabs {
          margin: 45px 0 15px;
-      }
-
-      .rating {
-         margin-top: 10px;
-         display: block;
-         & > p {
-            display: flex;
-            justify-content: center;
-            align-items: center;
+         display: flex;
+         @media screen and (max-width: $md4+px) {
             flex-direction: column;
-
-            & > span {
-               margin: 5px;
+         }
+         li {
+            float: none;
+            &.active {
+               & > a {
+                  background-color: $yellow;
+                  color: $black;
+               }
+            }
+            a {
+               color: $black;
+               text-align: center;
+               border-radius: 10px;
             }
          }
       }
    }
    //.opencart__product-btn
    &__product-btn {
-      padding: 13px 20px;
+      padding: 12px 15px;
       background: $yellow;
       color: $black;
       border-radius: 20px;
       border: none;
       margin: 0 4px;
+
       &:hover {
          background: $yellow;
          color: $black;
@@ -543,6 +552,10 @@ textarea {
          &:hover {
             background: rgba($color: $yellow, $alpha: 0.8);
          }
+      }
+      i {
+         width: 20px;
+         text-align: center;
       }
    }
 }
@@ -687,4 +700,46 @@ input[type="radio"].radio-bootstrap {
 
 .alert {
    line-height: 24px;
+}
+
+.btn-primary {
+   padding: 10px 40px;
+   color: #fff;
+   font-weight: 800;
+   border-radius: 10px;
+   background-image: none;
+   border: none;
+   background-color: $blue;
+}
+
+// Кнопка Войти в ЛК при регистарции
+.psevdo-button {
+   position: relative;
+   width: 100%;
+   // .psevdo-button__link
+   &__link {
+      position: absolute;
+      margin-top: 20px;
+      line-height: 14px;
+      text-align: center;
+      // @media screen and (max-width: 615px) {
+      //    height: 50px;
+      //    line-height: 27px;
+      // }
+      @media screen and (max-width: 520px) {
+         width: 100%;
+         margin-top: 90px;
+      }
+   }
+}
+
+.common-success__buttons {
+   display: flex;
+   justify-content: flex-end;
+   .common-success__button {
+      width: 290px;
+      @media screen and (max-width: 520px) {
+         width: 100%;
+      }
+   }
 }

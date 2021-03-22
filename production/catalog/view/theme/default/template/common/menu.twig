@@ -1,5 +1,7 @@
 
 
 {% for category in categories %}
-  <li><a class="account-header__link" href="{{ category.href }}">{{ category.name }}</a></li>
+  <li>
+    <a class="account-header__link" href="{{ category.href }}"><i class="{{ category.image }}"></i>{{ category.name }}</a>
+  </li>
 {% endfor %}

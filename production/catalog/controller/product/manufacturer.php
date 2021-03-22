@@ -7,7 +7,6 @@ class ControllerProductManufacturer extends Controller {
 		$this->load->language('product/manufacturer');
 
 		$this->load->model('catalog/manufacturer');
-		$this->load->model('catalog/product');
 
 		$this->load->model('tool/image');
 
@@ -30,39 +29,21 @@ class ControllerProductManufacturer extends Controller {
 		$results = $this->model_catalog_manufacturer->getManufacturers();
 
 		foreach ($results as $result) {
-			// if (is_numeric(utf8_substr($result['name'], 0, 1))) {
-			// 	$key = '0 - 9';
-			// } else {
-			// 	$key = utf8_substr(utf8_strtoupper($result['name']), 0, 1);
-			// }
+			if (is_numeric(utf8_substr($result['name'], 0, 1))) {
+				$key = '0 - 9';
+			} else {
+				$key = utf8_substr(utf8_strtoupper($result['name']), 0, 1);
+			}
 
-			// if (!isset($data['categories'][$key])) {
-			// 	$data['categories'][$key]['name'] = $key;
-			// }
+			if (!isset($data['categories'][$key])) {
+				$data['categories'][$key]['name'] = $key;
+			}
 
-			// $data['categories'][$key]['manufacturer'][] = array(
-			// 	'name' => $result['name'],
-			// 	'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $result['manufacturer_id'])
-			// );
-			$filter_data = array(
-				'filter_manufacturer_id' => $result['manufacturer_id'],
-			);
-
-			$products = $this->model_catalog_product->getTotalProducts($filter_data);
-
-			$data['manufacturer'][] = array(
+			$data['categories'][$key]['manufacturer'][] = array(
 				'name' => $result['name'],
-				'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $result['manufacturer_id']),
-				'image' => $result['image'],
-				'count' => $products,
+				'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $result['manufacturer_id'])
 			);
 		}
-
-		//Сортируем
-		usort($data['manufacturer'], function($a, $b){
-			return ($b['count'] - $a['count']);
-		});
-
 
 		$data['continue'] = $this->url->link('common/home');
 
@@ -82,6 +63,8 @@ class ControllerProductManufacturer extends Controller {
 		$this->load->model('catalog/manufacturer');
 
 		$this->load->model('catalog/product');
+
+		$this->load->model('catalog/category');
 
 		$this->load->model('tool/image');
 
@@ -205,7 +188,7 @@ class ControllerProductManufacturer extends Controller {
 
 			foreach ($results as $result) {
 				if ($result['image']) {
-					$image = $this->model_tool_image->resize($result['image'], $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
+					$image = $result['image'];
 				} else {
 					$image = $this->model_tool_image->resize('placeholder.png', $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_width'), $this->config->get('theme_' . $this->config->get('config_theme') . '_image_product_height'));
 				}

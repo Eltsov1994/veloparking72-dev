@@ -222,13 +222,19 @@ textarea.input {
 		height: 18px;
 		border: 1px solid #a3a3a3;
 		position: absolute;
-		border-radius: 50%;
+		border-radius: 3px;
 	}
 	&._active {
 		&:before {
+			content: "\e920";
+			font-family: icons;
+			color: $orange;
+			font-size: 12px;
+			text-align: center;
+			border: 1px $orange solid;
 			//background: url('../img/checkmark.svg') center no-repeat;
 			//background: url('../img/checkmark.svg') 50% / 90% no-repeat;
-			border: 5px $yellow solid;
+			//border: 5px $yellow solid;
 		}
 	}
 }

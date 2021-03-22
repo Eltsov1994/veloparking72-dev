@@ -100,6 +100,26 @@
    }
 }
 
+.with-column-left {
+   width: calc(100% - 300px);
+   @media screen and (max-width: $md3+px) {
+      width: 100%;
+   }
+   @media screen and (max-width: $md4+px) {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 0 30px;
+   }
+}
+.column-left {
+   width: 300px;
+   @media screen and (max-width: $md3+px) {
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
+   }
+}
+
 //HEADER BAGES ==========================================================================
 .bages-filter {
    display: flex;
@@ -328,35 +348,6 @@
       }
    }
 
-   .info-catalog {
-      // .info-catalog__options
-      &__options {
-         display: flex;
-         justify-content: space-between;
-         margin: 10px 0;
-      }
-      // .info-catalog__wishlist
-      &__wishlist {
-         background-color: transparent;
-         color: $orange;
-         i {
-            font-size: 18px;
-         }
-      }
-      // .info-catalog__compare
-      &__compare {
-         padding: 5px 10px;
-         background-color: $blue;
-         border-radius: 10px;
-         color: #fff;
-         @media screen and (min-width: $md2+px) {
-            &:hover {
-               opacity: 0.8;
-            }
-         }
-      }
-   }
-
    // .catalog-catalogies__footer
    &__footer {
       margin-top: 15px;
@@ -378,6 +369,41 @@
             &:hover {
                opacity: 0.8;
             }
+         }
+      }
+   }
+
+   .info-catalog__price {
+      span {
+         margin: 0;
+      }
+   }
+}
+
+.info-catalog {
+   // .info-catalog__options
+   &__options {
+      display: flex;
+      justify-content: space-between;
+      margin: 10px 0;
+   }
+   // .info-catalog__wishlist
+   &__wishlist {
+      background-color: transparent;
+      color: $orange;
+      i {
+         font-size: 18px;
+      }
+   }
+   // .info-catalog__compare
+   &__compare {
+      padding: 5px 10px;
+      background-color: $blue;
+      border-radius: 10px;
+      color: #fff;
+      @media screen and (min-width: $md2+px) {
+         &:hover {
+            opacity: 0.8;
          }
       }
    }

@@ -515,15 +515,12 @@ class ControllerMarketplaceInstall extends Controller {
 			}
 
 			// Remove the install
-			//d_opencart_patch.xml 1 moved down
+			$this->model_setting_extension->deleteExtensionInstall($extension_install_id);
 			
 			// Remove any xml modifications
 			$this->load->model('setting/modification');
 
 			$this->model_setting_modification->deleteModificationsByExtensionInstallId($extension_install_id);
-
-                //d_opencart_patch.xml 2
-                $this->model_setting_extension->deleteExtensionInstall($extension_install_id);
 			
 			$json['success'] = $this->language->get('text_success');
 		}

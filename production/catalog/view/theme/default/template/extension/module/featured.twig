@@ -2,43 +2,6 @@
   <div class="swiper-wrapper">
     {% for product in products %}
 
-    {# <div class="tabs__item-wrapper swiper-slide">
-      <div class="catalog-item">
-        <div class="catalog-item__img img-catalog">
-          <div class="img-catalog__wrapper">
-            <a class="img-catalog__link" href="{{ product.href }}">
-              <img class="img-catalog__img swiper-lazy" src="image/loading.gif" data-src="{{ product.thumb }}" alt="{{ product.name }}">
-              <div class="img-catalog__stickers stickers">
-                <div class="stickers__sticker stickers__feature"></div>
-                {% if product.special %}
-                <div class="stickers__sticker stickers__sale"></div>
-                {% endif %}
-                {% if product.date_added == product.year_now %}
-                <div class="stickers__sticker stickers__new"></div>
-                {% endif %}
-              </div>
-            </a>
-          </div>
-        </div>
-        <div class="catalog-item__info info-catalog">
-          <div class="info-catalog__line">
-            <a href="{{ product.href }}" class="info-catalog__name">{{ product.name }}</a>
-            <div class="info-catalog__article">АРТИКУЛ: <span>{{ product.product_id }}</span></div>
-          </div>
-          <div class="info-catalog__line">
-            {% if product.special %}
-            <div class="product-item__reprice info-catalog__price _price">{{ product.special }} <span class="_rub"></span></div>
-            <a href="{{ product.href }}" class="info-catalog__link main__button">Подробнее</a>
-            <div class="info-catalog__price-old info-catalog__price _price">{{ product.price }}<span class="_rub"></span></div>
-            {% else %}
-            <div class="info-catalog__price _price">{{ product.price }} <span class="_rub"></span></div>
-            <a href="{{ product.href }}" class="info-catalog__link main__button">Подробнее</a>
-            {% endif %}
-          </div>
-        </div>
-      </div>
-    </div> #}
-
     <div class="product-layout swiper-slide">
       <div class="catalog-item">
         <div class="product-thumb opencart__product-thumb">
@@ -85,12 +48,14 @@
                 {% endfor %}
               </div>
               {% endif %}
+              <div class="info-catalog__options">
+                <button class="info-catalog__wishlist" type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+                <button class="info-catalog__compare" type="button" onclick="compare.add('{{ product.product_id }}');">В сравнение</button>
+              </div>
             </div>
 
-            <div class="button-group">
-              <button type="button" onclick="cart.add('{{ product.product_id }}', '{{ product.minimum }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
-              <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
-              <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+            <div class="catalog-catalogies__footer">
+              <a href="{{ product.href }}"><i class="fa fa-shopping-cart"></i><span>Подробнее</span></a>
             </div>
 
           </div>

@@ -1,3 +1,16 @@
-{% for module in modules %}
-{{ module }}
-{% endfor %}
+<div class="specials__tabs tabs _tabs">
+   <nav class="tabs__nav _swiper">
+      {% for module in modules %}
+        {% if loop.index == 1 %}
+            <div class="tabs__link _tabs-item main__link _active"> {{ module.name }}</div>
+        {% else %}
+            <div class="tabs__link _tabs-item main__link"> {{ module.name }}</div>
+        {% endif %}
+      {% endfor %}
+   </nav>
+   <div class="tabs__body">
+      {% for module in modules %}
+        {{ module.content }}
+      {% endfor %}
+   </div>
+</div>

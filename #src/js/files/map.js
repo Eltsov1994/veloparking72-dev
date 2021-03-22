@@ -74,24 +74,39 @@ function map(n) {
 
 initMap();
 function initMap() {
-	let mapWrap = document.querySelectorAll('#map');
-	if (mapWrap.length) {
-		let
-			geocode = document.querySelector('.geocode').innerHTML,
-			position = geocode.indexOf(','),
-			geocodeL = geocode.slice(0, position),
-			geocodeM = geocode.slice(position + 2);
-		map(1, geocodeL, geocodeM);
+	// let mapWrap = document.querySelectorAll('.map');
+	// if (mapWrap.length) {
+	// 	let
+	// 		geocode = document.querySelector('.geocode').innerHTML,
+	// 		position = geocode.indexOf(','),
+	// 		geocodeL = geocode.slice(0, position),
+	// 		geocodeM = geocode.slice(position + 2),
+	// 		mapId = ;
+	// 	//map(1, geocodeL, geocodeM);
+	// }
+	let maps = document.querySelectorAll('.map');
+	if ( maps.length ){
+		for (let index = 0; index < maps.length; index++) {
+			const map = maps[index];
+			let parent = map.parentElement;
+			let geocode = parent.querySelector('.geocode').innerHTML;
+			let position = geocode.indexOf(',');
+			let geocodeL = geocode.slice(0, position);
+			let geocodeM = geocode.slice(position + 2);
+			let map_id = map.getAttribute('id');
+
+			mapCreate(map_id, geocodeL, geocodeM);
+		}
 	}
 }
 
-
 // YA
-function map(n, geocodeL, geocodeM) {
+function mapCreate(map_id, geocodeL, geocodeM) {
+
 	ymaps.ready(init);
 	function init() {
 		// Создание карты.
-		var myMap = new ymaps.Map("map", {
+		var myMap = new ymaps.Map(map_id, {
 			// Координаты центра карты.
 			// Порядок по умолчанию: «широта, долгота».
 			// Чтобы не определять координаты центра карты вручную,

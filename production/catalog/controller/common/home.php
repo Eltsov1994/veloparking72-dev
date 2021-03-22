@@ -27,29 +27,47 @@ class ControllerCommonHome extends Controller {
 		$this->load->model('design/banner');
 		$data['banners'] = $this->model_design_banner->getBanner(7);
 
-		// Производители
+		// Категории
 
 		$this->load->model('catalog/category');
 		$this->load->model('catalog/product');
 
-		$results = $this->model_catalog_category->getCategories(100);
+		$results = $this->model_catalog_category->getCategories();
 		foreach ($results as $result) {
-			$filter_data = array(
-				'filter_category_id'  => $result['category_id'],
-				'filter_sub_category' => true
-			);
-
-			$data['categories'][] = array(
-				'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
-				'count' => $this->config->get('config_product_count') ?  (int)$this->model_catalog_product->getTotalProducts($filter_data) : '',
-				'image' => 'image/'. $result['image'],
-				'href' => $this->url->link('product/category', 'path=' . 100 . '_' . $result['category_id'])
-			);
+			$data['categories'][] = [
+				'name' => $result['name'],
+				'id' => $result['category_id'],
+				'sort' => $result['sort_order'],
+			];
 		}
 
 		usort($data['categories'], function($a, $b){
-			return ($b['count'] - $a['count']);
+			return ($a['sort'] - $b['sort']);
 		});
+
+		foreach ($data['categories'] as $categories_key => &$categories_value) {
+
+			$sub_categories = $this->model_catalog_category->getCategories($categories_value['id']);
+			foreach ($sub_categories as $sub_categories_key => $sub_categories_value) {
+
+				$filter_data = array(
+					'filter_category_id'  => $sub_categories_value['category_id'],
+					'filter_sub_category' => true
+				);
+
+				$total_product = $this->model_catalog_product->getTotalProducts($filter_data);
+
+				if ( $total_product ){
+					$categories_value['sub_category'][] = [
+						'name' => $sub_categories_value['name'],
+						'image' => $sub_categories_value['image'],
+						'href'  => $this->url->link('product/category', 'path=' . $categories_value['id'] . '_' . $sub_categories_value['category_id'])
+					];
+				}
+			}
+
+		}
+
 
 
 

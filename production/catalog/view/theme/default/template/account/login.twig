@@ -50,9 +50,8 @@
                 </div>
 
                 <div class="form-group form__line">
-
-                  <button type="submit" class="form__button main__button">{{ button_login }}</button>
                   <a href="{{ register }}" class="form__button main__button account__signup login__signup">Регистрация</a>
+                  <button type="submit" class="form__button main__button">{{ button_login }}</button>
                   {% if redirect %}
                     <input type="hidden" name="redirect" value="{{ redirect }}" />
                   {% endif %}

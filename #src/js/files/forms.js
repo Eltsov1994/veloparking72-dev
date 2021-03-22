@@ -422,6 +422,7 @@ function inputs_init(inputs) {
             },
           }).mask(input);
         }
+        console.log(input);
         if (input.classList.contains("_digital")) {
           input.classList.add("_mask");
           Inputmask("9{1,}", {

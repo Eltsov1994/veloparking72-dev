@@ -52,6 +52,7 @@ class ControllerCommonCart extends Controller {
 
 		$this->load->model('tool/image');
 		$this->load->model('tool/upload');
+		$this->load->model('catalog/product');
 
 		$data['products'] = array();
 
@@ -96,6 +97,13 @@ class ControllerCommonCart extends Controller {
 				$total = false;
 			}
 
+			$old_price = null;
+			$product_info = $this->model_catalog_product->getProduct($product['product_id']);
+
+			if ($product_info['special']) {
+				$old_price = $this->currency->format($this->tax->calculate($product_info['price'], $product_info['tax_class_id'], $this->config->get('config_tax')), $this->session->data['currency']);
+			}
+
 			$data['products'][] = array(
 				'cart_id'   => $product['cart_id'],
 				'thumb'     => $image,
@@ -105,6 +113,7 @@ class ControllerCommonCart extends Controller {
 				'recurring' => ($product['recurring'] ? $product['recurring']['name'] : ''),
 				'quantity'  => $product['quantity'],
 				'price'     => $price,
+				'old_price' => $old_price,
 				'total'     => $total,
 				'href'      => $this->url->link('product/product', 'product_id=' . $product['product_id'])
 			);

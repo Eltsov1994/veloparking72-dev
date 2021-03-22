@@ -131,6 +131,9 @@ class ControllerInformationContact extends Controller {
 			$data['captcha'] = '';
 		}
 
+		$data['config_email'] = $this->config->get('config_email');
+		$data['telephone_split'] = str_replace([' ', '(', ')', '-'], '', $this->config->get('config_telephone'));
+
 		$data['column_left'] = $this->load->controller('common/column_left');
 		$data['column_right'] = $this->load->controller('common/column_right');
 		$data['content_top'] = $this->load->controller('common/content_top');

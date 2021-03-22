@@ -472,45 +472,6 @@
 }
 
 //========================================
-.character {
-	// .character__content
-	&__content {
-	}
-	// .character__body
-	&__body {
-		max-width: 500px;
-	}
-	// .character__title
-	&__title {
-		font-size: 13px;
-		text-align: center;
-		font-weight: 800;
-		text-transform: uppercase;
-		margin-bottom: 20px;
-	}
-	// .character__submit
-	&__submit {
-		margin: 20px auto 0;
-		width: 220px;
-		height: 48px;
-		&._disable {
-			pointer-events: none;
-			background-color: #ccc;
-		}
-	}
-
-	.select {
-		&__title {
-			padding: 15px 0;
-		}
-		&__options {
-			top: 55px;
-		}
-		&__option {
-			padding: 15px;
-		}
-	}
-}
 
 //====================================================================================================
 //* Сравнение ========================================================================================

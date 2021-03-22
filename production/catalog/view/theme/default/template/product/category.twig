@@ -1,9 +1,6 @@
 {{ header }}
 
 <main class="page _catalog">
-  {# {% if products %}
-    <button class="fixed__filters _icon-filter"></button>
-  {% endif %} #}
 
   <div id="product-category" class="container _start">
 
@@ -20,7 +17,7 @@
         {% if column_left and column_right %}
         {% set class = 'col-md-6 col-sm-5' %}
         {% elseif column_left or column_right %}
-        {% set class = 'col-md-9 col-sm-8' %}
+        {% set class = 'col-md-9 col-sm-8 with-column-left' %}
         {% else %}
         {% set class = 'col-sm-12' %}
         {% endif %}
@@ -28,14 +25,10 @@
         {% set class = 'col-sm-12' %}
       {% endif %}
 
-
       <div id="content" class="{{ class }}">
         {{ content_top }}
         <div class="header-page__title main__title">
           <h1>{{ heading_title }}</h1>
-          {# {% if categories %}
-          <p>{{ text_refine }}</p>
-          {% endif %} #}
         </div>
 
         {# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #}
@@ -46,7 +39,11 @@
               {% if category.count %}
                 <div class="brands__item main__card">
                   <a href="{{ category.href }}">
-                    <img src="{{ category.image }}" alt="{{ category.name }}">
+                    {% if category.image %}
+                      <img src="{{ category.image }}" alt="{{ category.name }}">
+                    {% else %}
+                      <img class="_no-img" src="image/catalog/camera.svg" alt="{{ category.name }}">
+                    {% endif %}
                     <p>{{ category.name }}
                     </p>
                   </a>
@@ -56,6 +53,38 @@
           </div>
           
         {% endif %}
+
+        {% if manufacturers %}
+          <div class="manufacturers">
+            <div class="manufacturers__header">
+              <div class="header-page__title main__title">
+                <h3>Бренды</h3>
+              </div>            
+            </div>
+            <div class="manufacturers__body">
+              <div class="swiper-container manufacturers__slider slider-manufacturers">
+                <div class="swiper-wrapper slider-manufacturers__wrapper">
+                  {% for manufacturer in manufacturers %}
+                    {% if manufacturer.count %}
+                      <div class="swiper-slide slider-manufacturers__slide">
+                          <a href="{{ manufacturer.href }}" data-tippy-content="{{ manufacturer.name }}">
+                            {% if manufacturer.image %}
+                              <img class="swiper-lazy" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" data-src="{{ manufacturer.image }}" alt="{{ manufacturer.name }}">
+                            {% else %}
+                              <img class="_no-img" src="image/catalog/camera.svg" alt="{{ manufacturer.name }}">
+                            {% endif %}
+                          </a>
+                      </div>
+                    {% endif %}
+                  {% endfor %}
+                </div>
+                <div class="more__item_next _icon-arrowright more__item"></div>
+                <div class="more__item_prev _icon-arrowleft more__item"></div>
+              </div>
+            </div>
+          </div>
+        {% endif %}
+
         {# !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! #}
       
         {% if products %}
@@ -132,29 +161,31 @@
                     <p>{{ product.description }}</p>
 
                     {% if product.price %}
-                    <p class="price _price info-catalog__price">
+                    <div class="price _price info-catalog__price">
                       {% if not product.special %}
                         {{ product.price }}
                         <span class="_rub"></span>
-                      {% else %} 
-                        <span class="price-new info-catalog__price">{{ product.special }}<span class="_rub"></span></span>
-                        <span class="price-old info-catalog__price">{{ product.price }}<span class="_rub"></span></span> 
+                      {% else %}
+                        <p class="price-new info-catalog__priced">{{ product.special }}<span class="_rub"></span></p>
+                        <p class="price-old info-catalog__priced">{{ product.price }}<span class="_rub"></span></p> 
                       {% endif %}
                       {% if product.tax %} 
                         <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> 
                       {% endif %} 
-                    </p>
+                    </div>
                     {% endif %}
 
                     {% if product.rating %}
-                    <div class="rating"> 
-                      {% for i in 1..5 %}
-                        {% if product.rating < i %} 
-                          <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
-                        {% else %}
-                          <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
-                        {% endif %}
-                      {% endfor %}
+                    <div class="rating__wrapper">
+                      <span class="rating__stars"> 
+                        {% for i in 1..5 %}
+                          {% if product.rating < i %} 
+                            <span class="fa fa-stack"><i class="_icon-star rating__stars-null fa fa-stack-1x"></i></span>
+                          {% else %}
+                            <span class="fa fa-stack"><i class="_icon-star rating__stars-null fa fa-stack-1x"></i><i class="_icon-star rating__stars-full fa fa-stack-1x"></i></span>
+                          {% endif %}
+                        {% endfor %}
+                      </span>
                     </div>
                     {% endif %}
 
@@ -191,8 +222,13 @@
 
         {{ content_bottom }}
       </div>
+
       {{ column_right }}
     </div>
+
+
+
+
   </div>
 </main>
 

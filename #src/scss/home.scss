@@ -2,6 +2,7 @@
 //! ======================SALES======================
 .sales {
    margin-top: 250px;
+   margin-bottom: 50px;
    @media screen and (max-width: $md2+px) {
       margin-top: pxResponsive(110, 150);
    }
@@ -46,12 +47,13 @@
 .slider-pagging {
    position: absolute;
    bottom: 0;
-   left: 0;
+   left: 50%;
+   transform: translateX(-50%);
    margin: 15px;
    span {
       width: 12px;
       height: 12px;
-      border: 3px $white solid;
+      border: 3px $yellow solid;
       display: inline-block;
       border-radius: 50%;
       margin: 0 7px;
@@ -64,7 +66,7 @@
       }
       //Активный буллит
       &.swiper-pagination-bullet-active {
-         background-color: $white;
+         background-color: $yellow;
       }
    }
 }
@@ -142,9 +144,34 @@
       display: flex;
       margin: -10px;
       flex-wrap: wrap;
+      margin-bottom: 50px;
    }
    // .brands__item
    &__item {
+   }
+}
+
+.home-categories {
+   // .home-categories__header
+   &__header {
+   }
+   // .home-categories__tabs
+   &__tabs {
+   }
+   // .home-categories__nav
+   &__nav {
+   }
+   // .home-categories__item
+   &__item {
+   }
+   // .home-categories__body
+   &__body {
+   }
+   // .home-categories__block
+   &__block {
+      display: flex;
+      margin: 30px 0 10px;
+      flex-wrap: wrap;
    }
 }
 

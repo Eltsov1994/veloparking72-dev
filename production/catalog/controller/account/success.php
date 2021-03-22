@@ -44,6 +44,7 @@ class ControllerAccountSuccess extends Controller {
 		$data['content_bottom'] = $this->load->controller('common/content_bottom');
 		$data['footer'] = $this->load->controller('common/footer');
 		$data['header'] = $this->load->controller('common/header');
+		$data['button_continue'] = 'Перейти в личный кабинет';
 
 		$this->response->setOutput($this->load->view('common/success', $data));
 	}

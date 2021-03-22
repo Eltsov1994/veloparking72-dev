@@ -2,17 +2,18 @@
 cartRequantity();
 function cartRequantity(){
    if ( $('.dropdown-cart__quantity').length ){
-
-      $('.dropdown-cart__quantity input').blur(()=>{ cartRefresh() });
+        $('.dropdown-cart__quantity input').blur(()=>{ 
+            var data = $("#form-cart-header").serialize();
+            cartRefresh(data);
+        });
    }
 }
 
-function cartRefresh(){
+function cartRefresh(data){
     $.ajax({
     url: "index.php?route=checkout/cart/edit",
     type: "post",
-    data: $("#form-cart").serialize(),
-    dataType: "html",
+    data: data,
     beforeSend: function () {
         // Добавляем лоадер
         popupLoaderAdd('popup-maincart__body');
@@ -29,10 +30,17 @@ function cartRefresh(){
 
         $('.header__cart').html(cart_button);
         $('.dropdown-cart').html(popup_content);
+
         halfedPrice();
         cartRequantity();
         cartQuanter();
         popupRefresh();
+        reqInput();
+
+        if ( $('#checkout-cart__input').length ){
+            $('#checkout-cart__input').val( $('#header-cart__input').val() );
+            reloadAll();
+        }
     },
     error: function (xhr, ajaxOptions, thrownError) {
         alert(
@@ -57,7 +65,9 @@ function cartQuanter(){
             var valInput = Number( $(input).val() );
             ($(this).hasClass('dropdown-cart__minus')) ? valInput = valInput - 1 : valInput = valInput + 1;
             $(input).val(valInput);
-            cartRefresh();
+
+            var data = $("#form-cart-header").serialize();
+            cartRefresh(data);
         });
     }
 }
@@ -78,4 +88,19 @@ function popupLoaderClear(){
 function popupLoaderAdd(className){
     // Удаляем лоадер
     $(`.${className}`).append('<div class="popup-loader"></div>');
+}
+
+// Input Digital
+reqInput();
+function reqInput(){
+
+    for (let index = 0; index < $('input._digital').length; index++) {
+        const input = $('input._digital')[index];
+        $(input).bind("change keyup input click keydown", function() {
+            if (this.value.match(/[^0-9]/g)) {
+                this.value = this.value.replace(/[^0-9]/g, '');
+            }
+        });
+    }
+
 }

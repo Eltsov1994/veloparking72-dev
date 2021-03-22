@@ -17,12 +17,19 @@ class ControllerParserMain extends Controller {
       // $this->db->query("TRUNCATE TABLE " . DB_PREFIX . "product_to_store");
       // $this->db->query("TRUNCATE TABLE " . DB_PREFIX . "product_to_layout");
       // $this->db->query("TRUNCATE TABLE " . DB_PREFIX . "product_to_category");
+
+      // $this->db->query("TRUNCATE TABLE " . DB_PREFIX . "manufacturer");
+      // $this->db->query("TRUNCATE TABLE " . DB_PREFIX . "manufacturer_description");
+      // $this->db->query("TRUNCATE TABLE " . DB_PREFIX . "manufacturer_to_layout");
+      // $this->db->query("TRUNCATE TABLE " . DB_PREFIX . "manufacturer_to_store");
       
 
       $parser = $this->load->controller('parser/parser');
-      //$this->load->controller('parser/category', $parser);
+      $this->load->controller('parser/functions');
+      $this->load->controller('parser/category', $parser);
       $this->load->controller('parser/products', $parser);
-      //$this->load->controller('parser/filters', $parser);
+      $this->load->controller('parser/filters', $parser);
+
 
 	}
 	

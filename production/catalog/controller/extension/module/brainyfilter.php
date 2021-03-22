@@ -47,8 +47,9 @@ class ControllerExtensionModuleBrainyFilter extends Controller {
 
 		$this->load->model('extension/module/brainyfilter');
         $model = new ModelExtensionModuleBrainyFilter($this->registry);
-
+        
 		$this->_data['path'] = (isset($this->request->get['path'])) ? $this->request->get['path'] : "";
+
 		$model->setData($data);
         
         $conditions = $model->getConditions();

@@ -33,6 +33,63 @@
 	</div>
 </section>
 
+<section class="home-categories">
+	<div class="home-categories__wrapper _container">
+		<div class="home-categories__header main__title">
+			<h3>Каталог</h3>
+		</div>
+		<div class="home-categories__tabs tabs _tabs">
+			<nav class="home-categories__nav tabs__nav _swiper">
+				{% for category in categories %}
+					{% if loop.index == 1 %}
+						<div class="home-categories__item _tabs-item tabs__link main__link _active">{{ category.name }}</div>
+					{% else %}
+						<div class="home-categories__item _tabs-item tabs__link main__link">{{ category.name }}</div>
+					{% endif %}
+				{% endfor %}
+			</nav>
+			<div class="home-categories__body">
+				{% for category in categories %}
+					{% if loop.index == 1 %}
+						<div class="_tabs-block _active">
+							<div class="home-categories__block">
+								{% for sub_categorier in category.sub_category %}
+									<div class="main__card">
+										<a href="{{ sub_categorier.href }}">
+											{% if sub_categorier.image %}
+												<img src="{{ sub_categorier.image }}" alt="{{ sub_categorier.name }}">
+											{% else %}
+												<img class="_no-img" src="image/catalog/camera.svg" alt="{{ sub_categorier.name }}">
+											{% endif %}
+											<p>{{ sub_categorier.name }}</p>
+										</a>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					{% else %}
+						<div class="_tabs-block">
+							<div class="home-categories__block">
+								{% for sub_categorier in category.sub_category %}
+									<div class="main__card">
+										<a href="{{ sub_categorier.href }}">
+											{% if sub_categorier.image %}
+												<img src="{{ sub_categorier.image }}" alt="{{ sub_categorier.name }}">
+											{% else %}
+												<img class="_no-img" src="image/catalog/camera.svg" alt="{{ sub_categorier.name }}">
+											{% endif %}
+											<p>{{ sub_categorier.name }}</p>
+										</a>
+									</div>
+								{% endfor %}
+							</div>
+						</div>
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>
 
 <section class="specials">
 	<div class="specials__wrapper _container">
@@ -40,35 +97,10 @@
 			<h3>Специальные предложения</h3>
 		</div>
 		<div class="specials__tabs tabs _tabs">
-			<nav class="tabs__nav _swiper">
-				<div class="tabs__link _tabs-item main__link _active">Новинки</div>
-				<div class="tabs__link _tabs-item main__link">Акции</div>
-				<div class="tabs__link _tabs-item main__link">Рекомендуем</div>
-				{# <div class="tabs__link _tabs-item main__link">Хиты продаж</div> #}
-			</nav>
-			<div class="tabs__body">
-				{{ content_top }}
-			</div>
+			{{ content_top }}
 		</div>
 	</div>
 </section>
 
-<section class="brands">
-	<div class="brands__wrapper _container">
-		<div class="brands__header main__title">
-			<h3>Каталог</h3>
-		</div>
-		<div class="brands__body">
-			{% for category in categories %}
-			<div class="brands__item main__card">
-				<a href="{{ category.href }}">
-					<img src="{{ category.image }}" alt="{{ category.name }}">
-					<p>{{ category.name }}</p>
-				</a>
-			</div>
-			{% endfor %}
-		</div>
-	</div>
-</section>
 
 {{ footer }}

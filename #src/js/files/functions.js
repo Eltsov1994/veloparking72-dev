@@ -74,6 +74,14 @@ function menu_close() {
 	iconMenu.classList.remove("_active");
 	menuBody.classList.remove("_active");
 }
+out_menu();
+function out_menu(){
+	let overlay = document.querySelector('.menu__overlay');
+	overlay.addEventListener('click', ()=>{
+		menu_close();
+		body_lock_remove();
+	});
+}
 //=================
 //BodyLock
 function body_lock(delay) {

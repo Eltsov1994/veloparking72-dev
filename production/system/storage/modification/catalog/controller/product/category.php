@@ -8,6 +8,8 @@ class ControllerProductCategory extends Controller {
 
 		$this->load->model('catalog/category');
 
+		$this->load->model('catalog/manufacturer');
+
 		$this->load->model('catalog/product');
 
 		$this->load->model('tool/image');
@@ -26,14 +28,14 @@ class ControllerProductCategory extends Controller {
 			$sort = $this->request->get['sort'];
 			$this->document->setRobots('noindex,follow');
 		} else {
-			$sort = 'p.sort_order';
+			$sort = 'p.price';
 		}
 
 		if (isset($this->request->get['order'])) {
 			$order = $this->request->get['order'];
 			$this->document->setRobots('noindex,follow');
 		} else {
-			$order = 'ASC';
+			$order = 'DESC';
 		}
 
 		if (isset($this->request->get['page'])) {
@@ -201,7 +203,7 @@ class ControllerProductCategory extends Controller {
 				$data['categories'][] = array(
 					'name' => $result['name'] . ($this->config->get('config_product_count') ? ' (' . $this->model_catalog_product->getTotalProducts($filter_data) . ')' : ''),
 					'count' => $this->config->get('config_product_count') ?  (int)$this->model_catalog_product->getTotalProducts($filter_data) : '',
-					'image' => 'image/'. $result['image'],
+					'image' => $result['image'] ? 'image/'. $result['image'] : '',
 					'href' => $this->url->link($route, $path . '_' . $result['category_id'] . $url)
 				);
 			}
@@ -210,6 +212,42 @@ class ControllerProductCategory extends Controller {
 				return ($b['count'] - $a['count']);
 			});
 
+			/*==================================================================*/
+
+			$manufacturers = $this->model_catalog_manufacturer->getManufacturers();
+
+			
+			foreach ($manufacturers as $manufacturer) {
+
+				$filter_data_manufacturer_id = array(
+					'filter_manufacturer_id' => $manufacturer['manufacturer_id'],
+					'filter_category_id'  => $category_id,
+					'filter_sub_category' => true
+				);
+
+				$product_total = $this->model_catalog_product->getTotalProducts($filter_data_manufacturer_id);
+
+				if ( $product_total ){
+					$data['manufacturers'][] = array(
+						'name' => $manufacturer['name'],
+						'count' => $product_total,
+						'image' => $manufacturer['image'] ? 'image/'. $manufacturer['image'] : '',
+						'href' => $this->url->link('product/manufacturer/info', 'manufacturer_id=' . $manufacturer['manufacturer_id'])
+					);
+				}
+
+			}
+
+			if ( isset($data['manufacturers']) ){
+				usort($data['manufacturers'], function($a, $b){
+					return ($b['count'] - $a['count']);
+				});
+			} else {
+				$data['manufacturers'] = '';
+			}
+
+
+			/*==================================================================*/
 
 			$data['products'] = array();
 

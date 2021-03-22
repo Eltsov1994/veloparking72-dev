@@ -101,23 +101,27 @@
 								<span></span>
 							</div>
 							<nav class="menu__body">
-								<ul class="menu__list">
-									{# <li><a href="/velosipedy" class="menu__link main__link">Каталог</a></li> #}
-									<li class="menu__li-catalog">
-										<a href="#" class="menu__link main__link">Каталог</a>
-										<ul> {{ menu }} </ul>
-									</li>
-									<li class="menu__li-spoller _spollers">
-										<div class="menu__link main__link _spoller">Каталог</div>
-										<ul style="display: none;"> {{ menu }} </ul>
-									</li>
-									<li><a href="/news" class="menu__link main__link">Новости</a></li>
-									<li><a href="index.php?route=information/information&information_id=7" class="menu__link main__link">Услуги</a></li>
-									<li><a href="#" class="menu__link main__link">Отзывы</a></li>
-									<li><a href="index.php?route=information/information&information_id=8" class="menu__link main__link">Оплата</a></li>
-									<li><a href="index.php?route=information/information&information_id=6" class="menu__link main__link">Доставка</a></li>
-									<li><a href="{{ contact }}" class="menu__link main__link">Контакты</a></li>
-								</ul>
+								<div class="menu__content">
+									<ul class="menu__list">
+										<li class="menu__li-catalog">
+											<a href="#" class="menu__link main__link">Каталог</a>
+											<ul> {{ menu }} </ul>
+										</li>
+										<li class="menu__li-spoller _spollers">
+											<p class="menu__link main__link _spoller">Каталог</p>
+											<ul style="display: none;">
+												{{ menu }}
+											</ul>
+										</li>
+										<li><a href="/news" class="menu__link main__link">Новости</a></li>
+										<li><a href="index.php?route=information/information&information_id=7" class="menu__link main__link">Услуги</a></li>
+										<li><a href="#" class="menu__link main__link">Отзывы</a></li>
+										<li><a href="index.php?route=information/information&information_id=8" class="menu__link main__link">Оплата</a></li>
+										<li><a href="index.php?route=information/information&information_id=6" class="menu__link main__link">Доставка</a></li>
+										<li><a href="{{ contact }}" class="menu__link main__link">Контакты</a></li>
+									</ul>
+								</div>
+								<div class="menu__overlay"></div>
 							</nav>
 						</div>
 						<div class="header__account  account-header">
@@ -146,7 +150,7 @@
 				{{ cart }}
 					</div>
 					<div class="header__line _header-hidden">
-						<div class="header__info info-header" data-da=".menu__body, 991.98, 1">
+						<div class="header__info info-header" data-da=".menu__content, 991.98, 1">
 							<div class="info-header__wrapper">
 								{# <a class="info-header__place _icons-header _icon-place _popup-link" href="map">г. Тюмень</a> #}
 								<a class="info-header__phone _icons-header _icon-phone" href="tel:{{ telephone_split }}">{{ telephone }}</a>
